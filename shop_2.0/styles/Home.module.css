@@ -1,0 +1,32 @@
+.header{
+  display: flex;
+  height: 100px;
+  justify-content: center;
+  align-items: flex-end;
+  align-content: flex-end;
+  background-color: orange;
+}
+
+.header_buttons_wrapper{
+  display: flex;
+  width: 800px;
+  /* align-items: space-between; */
+  justify-content: space-around;
+  margin-bottom: 10px;
+  /* background-color: blanchedalmond; */
+}
+
+.header_button{
+  width: 100px;
+  height: 40px;
+  border: none;
+  font-size: 20px;
+  background-color: inherit;
+  /* color: black; */
+
+  
+}
+
+.header_button:hover{
+  border: 2px solid black;
+}
