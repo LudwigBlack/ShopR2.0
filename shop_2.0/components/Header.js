@@ -1,5 +1,3 @@
-//import { Children } from "react";
-//import { useRouter } from "next/router";
 import Button from "./Button";
 import styles from "../styles/Home.module.css";
 
