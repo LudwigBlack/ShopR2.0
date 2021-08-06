@@ -1,5 +1,5 @@
-import  SnacksProvider  from "../contexts/SnacksProvider";
-
+//import  SnacksProvider  from "../contexts/SnacksProvider";
+import { Providers } from "../components/Providers";
 import "../styles/globals.css";
 
 import Layout from "../components/Layout";
@@ -7,11 +7,11 @@ import Layout from "../components/Layout";
 
 function MyApp({ Component, pageProps }) {
   return (
-    <SnacksProvider>
+    <Providers>
       <Layout>
         <Component {...pageProps} />
       </Layout>
-    </SnacksProvider>
+    </Providers>
   );
 }
 
