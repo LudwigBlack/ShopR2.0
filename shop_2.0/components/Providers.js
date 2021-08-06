@@ -1,14 +1,12 @@
 import SnacksProvider from "../contexts/SnacksProvider";
 import CartProvider from "../contexts/CartProvider";
 
-export const Providers = (props) => {
-<<<<<<< Updated upstream
-  console.log("shieeeet");
-=======
->>>>>>> Stashed changes
+const Providers = (props) => {
   return (
     <SnacksProvider>
       <CartProvider>{props.children}</CartProvider>
     </SnacksProvider>
   );
 };
+
+export default Providers;

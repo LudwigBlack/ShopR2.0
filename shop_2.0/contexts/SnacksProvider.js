@@ -1,7 +1,4 @@
-//import { useRouter } from "next/router";
 import { useReducer, createContext, useContext } from "react";
-//import { Product } from "./Product";
-//import {SHOW_SNACKS} from "./pages/types";
 
 const snacks = [
   {
@@ -44,7 +41,11 @@ const snacksReducer = (state, action) => {
 const SnacksProvider = ({ children }) => {
   const [state, dispatch] = useReducer(snacksReducer, snacks);
 
-  return <SnacksContext.Provider value={{state, dispatch}}>{children}</SnacksContext.Provider>;
+  return (
+    <SnacksContext.Provider value={{ state, dispatch }}>
+      {children}
+    </SnacksContext.Provider>
+  );
 };
 
 export default SnacksProvider;

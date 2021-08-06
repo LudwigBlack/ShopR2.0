@@ -1,7 +1,4 @@
-//import { useRouter } from "next/router";
 import { useReducer, createContext, useContext } from "react";
-//import { Product } from "./Product";
-//import {SHOW_SNACKS} from "./pages/types";
 
 const cart = [];
 
