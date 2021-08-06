@@ -1,10 +1,19 @@
-.header{
+.navbar{
   display: flex;
   height: 100px;
-  justify-content: center;
+  /* width: 60%; */
+  justify-content: flex-end;
   align-items: flex-end;
-  align-content: flex-end;
+  /* align-content: flex-end;  */
+  padding-left: 20px;
+  padding-right: 20px;
   background-color: orange;
+}
+
+.header{
+  display: flex;
+  margin-right: 200px;
+  /* background-color: indigo; */
 }
 
 .header_buttons_wrapper{
@@ -14,6 +23,20 @@
   justify-content: space-around;
   margin-bottom: 10px;
   /* background-color: blanchedalmond; */
+}
+
+.section{
+  display: flex;
+  width: 400px;
+  justify-content: flex-end;
+  /* margin-left: 100px; */
+  margin-bottom: 10px;
+  /* background-color: hotpink; */
+}
+
+.section_div{
+display: flex;
+justify-content: flex-end;
 }
 
 .header_button{
@@ -29,4 +52,44 @@
 
 .header_button:hover{
   border: 2px solid black;
+}
+
+.snacksPage{
+  display: flex;
+  padding-left: 200px;
+  padding-top: 100px;
+}
+
+.snacksPage_wrapper{
+  display: flex;
+  flex-basis: 600px;
+  padding: 10px;
+  border: 2px solid orange;
+}
+
+.productsWrapper{
+  display: flex;
+  width: 400px;
+  justify-content: space-evenly;
+  margin: 5px ;
+  border: 2px solid green;
+  background-color: palegreen;
+}
+
+.cartPage{
+  display: flex;
+  justify-content: center;
+  margin: 20px;
+}
+
+.mainWrapper{
+  /* flex-direction: ; */
+  flex-basis: 1000px;
+  height: 500px;
+  /* background-color: lightblue; */
+}
+
+.cartProducts_Wrapper{
+  height: 200px;
+  background-color: rgb(175, 60, 60);
 }
