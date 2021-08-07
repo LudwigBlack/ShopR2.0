@@ -93,3 +93,16 @@ justify-content: flex-end;
   height: 200px;
   background-color: rgb(175, 60, 60);
 }
+
+.adminPage{
+  display: flex;
+  justify-content: space-evenly;
+  background-color: green;
+}
+
+.admin_form{
+  display: flex;
+  flex-basis: 600px;
+  padding: 10px;
+  border: 2px solid orange;
+}
