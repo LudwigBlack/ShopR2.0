@@ -1,4 +1,4 @@
-import { Product } from "../components/Product";
+import { AdminProduct } from "../components/AdminProduct";
 import { useSnacks } from "../contexts/SnacksProvider";
 import { Form } from "../components/Form";
 
@@ -9,7 +9,7 @@ const Admin = () => {
   // const handleCLick = () => onClickHandler({ id, type: "ADD_PRODUCT" });
 
   const allProducts = snacksState.state.map((product) => (
-    <Product key={product.id} {...product} />
+    <AdminProduct key={product.id} {...product} />
   ));
 
   return (

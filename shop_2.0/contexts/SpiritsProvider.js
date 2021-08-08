@@ -1,26 +1,26 @@
 import { useReducer, createContext, useContext } from "react";
 
-const snacks = [
+const spirits = [
   {
     id: 1,
-    name: "Orzeszki solone",
-    price: 8,
+    name: "Giness",
+    price: 10,
   },
   {
     id: 2,
-    name: "Batonik Mars",
-    price: 3,
+    name: "Mohito Drink",
+    price: 6,
   },
   {
     id: 3,
-    name: "Paluszki słone",
-    price: 5,
+    name: "Perła Chmielowa",
+    price: 4,
   },
 ];
 
-const SnacksContext = createContext();
+const SpiritsContext = createContext();
 
-const snacksReducer = (state, action) => {
+const spiritsReducer = (state, action) => {
   switch (action.type) {
     case "SHOW_SNACKS":
       return state;
@@ -40,16 +40,16 @@ const snacksReducer = (state, action) => {
   }
 };
 
-const SnacksProvider = ({ children }) => {
-  const [state, dispatch] = useReducer(snacksReducer, snacks);
+const SpiritsProvider = ({ children }) => {
+  const [state, dispatch] = useReducer(spiritsReducer, spirits);
 
   return (
-    <SnacksContext.Provider value={{ state, dispatch }}>
+    <SpiritsContext.Provider value={{ state, dispatch }}>
       {children}
-    </SnacksContext.Provider>
+    </SpiritsContext.Provider>
   );
 };
 
-export default SnacksProvider;
+export default SpiritsProvider;
 
-export const useSnacks = () => useContext(SnacksContext);
+export const useSpirits = () => useContext(SpiritsContext);
