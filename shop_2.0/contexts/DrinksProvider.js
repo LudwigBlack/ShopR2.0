@@ -3,16 +3,19 @@ import { useReducer, createContext, useContext } from "react";
 const drinks = [
   {
     id: 1,
+    category: "Drinks",
     name: "Coca-Cola",
     price: 3,
   },
   {
     id: 2,
+    category: "Drinks",
     name: "Pepsi",
     price: 3,
   },
   {
     id: 3,
+    category: "Drinks",
     name: "Oranżada Czerwona",
     price: 4,
   },
@@ -29,6 +32,7 @@ const drinksReducer = (state, action) => {
         ...state,
         {
           id: action.id,
+          category: action.category,
           name: action.name,
           price: action.price,
         },

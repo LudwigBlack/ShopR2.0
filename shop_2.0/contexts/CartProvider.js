@@ -3,11 +3,13 @@ import { useReducer, createContext, useContext } from "react";
 const cart = [
   {
     id: 1,
+    category: "Snacks",
     name: "Orzeszki solone",
     price: 8,
   },
   {
     id: 2,
+    category: "Snacks",
     name: "Batonik Mars",
     price: 3,
   },
@@ -24,6 +26,7 @@ const cartReducer = (state, action) => {
         ...state,
         {
           id: action.id,
+          category: action.category,
           name: action.name,
           price: action.price,
         },

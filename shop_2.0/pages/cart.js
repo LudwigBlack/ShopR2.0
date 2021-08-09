@@ -8,7 +8,7 @@ const Cart = () => {
   // const handleCLick = () => onClickHandler({ id, type: "ADD_PRODUCT" });
 
   const allProducts = cartState.state.map((product) => (
-    <CartProduct key={product.id} {...product} />
+    <CartProduct key={product.id + product.category} {...product} />
   ));
 
   return (

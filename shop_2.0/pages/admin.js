@@ -17,15 +17,27 @@ const Admin = () => {
   const dispatchSpirits = useSpirits().dispatch;
 
   const snacksProducts = snacksState.state.map((product) => (
-    <AdminProduct key={product.id} dispatch={dispatchSnacks} {...product} />
+    <AdminProduct
+      key={product.id + product.category}
+      dispatch={dispatchSnacks}
+      {...product}
+    />
   ));
 
   const drinksProducts = drinksState.state.map((product) => (
-    <AdminProduct key={product.id} dispatch={dispatchDrinks} {...product} />
+    <AdminProduct
+      key={product.id + product.category}
+      dispatch={dispatchDrinks}
+      {...product}
+    />
   ));
 
   const spiritsProducts = spiritsState.state.map((product) => (
-    <AdminProduct key={product.id} dispatch={dispatchSpirits} {...product} />
+    <AdminProduct
+      key={product.id + product.category}
+      dispatch={dispatchSpirits}
+      {...product}
+    />
   ));
 
   return (

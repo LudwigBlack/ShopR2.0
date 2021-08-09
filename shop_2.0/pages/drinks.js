@@ -8,7 +8,7 @@ const Drinks = () => {
   // const handleCLick = () => onClickHandler({ id, type: "ADD_PRODUCT" });
 
   const allProducts = drinksState.state.map((product) => (
-    <Product key={product.id} {...product} />
+    <Product key={product.id + product.category} {...product} />
   ));
 
   return (

@@ -16,7 +16,7 @@ export const Form = () => {
 
   let name;
   let price;
-  let productType;
+  let category;
 
   function handleChangeName(e) {
     name = e.target.value;
@@ -29,18 +29,24 @@ export const Form = () => {
   }
 
   function handleSelect(e) {
-    productType = e.target.value;
+    category = e.target.value;
   }
 
   function handleSubmit(e) {
     console.log(e);
     e.preventDefault();
-    if (productType === "Snacks") {
+    if (category === "Snacks") {
       const id = Math.max(...stateSnack.map((i) => i.id)) + 1;
 
-      dispatchSnack({ id, name, price, type: "ADD_PRODUCT" });
-    } else if (productType === "Drinks") {
-    } else if (productType === "Spirits") {
+      dispatchSnack({ id, category, name, price, type: "ADD_PRODUCT" });
+    } else if (category === "Drinks") {
+      const id = Math.max(...stateDrink.map((i) => i.id)) + 1;
+
+      dispatchDrink({ id, category, name, price, type: "ADD_PRODUCT" });
+    } else if (category === "Spirits") {
+      const id = Math.max(...stateSpirit.map((i) => i.id)) + 1;
+
+      dispatchSpirit({ id, category, name, price, type: "ADD_PRODUCT" });
     } else {
       console.log("coś nie działa");
     }
