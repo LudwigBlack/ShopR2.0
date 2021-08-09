@@ -1,13 +1,22 @@
 import { useSnacks } from "../contexts/SnacksProvider";
+import { useDrinks } from "../contexts/DrinksProvider";
+import { useSpirits } from "../contexts/SpiritsProvider";
 
 import styles from "../styles/Home.module.css";
 
 export const Form = () => {
-  const { dispatch } = useSnacks();
-  const { state } = useSnacks();
+  const dispatchSnack = useSnacks().dispatch;
+  const stateSnack = useSnacks().state;
+
+  const dispatchDrink = useDrinks().dispatch;
+  const stateDrink = useDrinks().state;
+
+  const dispatchSpirit = useSpirits().dispatch;
+  const stateSpirit = useSpirits().state;
 
   let name;
   let price;
+  let productType;
 
   function handleChangeName(e) {
     name = e.target.value;
@@ -19,13 +28,22 @@ export const Form = () => {
     console.log(price);
   }
 
+  function handleSelect(e) {
+    productType = e.target.value;
+  }
+
   function handleSubmit(e) {
     console.log(e);
     e.preventDefault();
-    const id = Math.max(...state.map((i) => i.id)) + 1;
+    if (productType === "Snacks") {
+      const id = Math.max(...stateSnack.map((i) => i.id)) + 1;
 
-    dispatch({ id, name, price, type: "ADD_PRODUCT" });
-    console.log("Submit");
+      dispatchSnack({ id, name, price, type: "ADD_PRODUCT" });
+    } else if (productType === "Drinks") {
+    } else if (productType === "Spirits") {
+    } else {
+      console.log("coś nie działa");
+    }
   }
   return (
     <form onSubmit={handleSubmit}>
@@ -40,6 +58,12 @@ export const Form = () => {
         placeholder="Enter product price"
         onChange={handleChangePrice}
       />
+      <select onChange={handleSelect}>
+        <option>Wybierz rodzaj produktu</option>
+        <option value="Snacks">Snacks</option>
+        <option value="Drinks">Drinks</option>
+        <option value="Spirits">Spirits</option>
+      </select>
       <button type="submit">Dodaj produkt</button>
     </form>
   );

@@ -4,8 +4,8 @@ import { useSpirits } from "../contexts/SpiritsProvider";
 
 import styles from "../styles/Home.module.css";
 
-export const AdminProduct = ({ id, name, price }) => {
-  const { dispatch } = useSnacks();
+export const AdminProduct = ({ id, dispatch, name, price }) => {
+  //const { dispatch } = useSnacks();
 
   const handleCLick = () => {
     console.log(id);

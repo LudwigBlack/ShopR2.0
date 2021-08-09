@@ -56,8 +56,8 @@ justify-content: flex-end;
 
 .snacksPage{
   display: flex;
-  padding-left: 200px;
-  padding-top: 100px;
+  /* padding-left: 200px;
+  padding-top: 100px; */
 }
 
 .snacksPage_wrapper{
@@ -96,9 +96,17 @@ justify-content: flex-end;
 
 .adminPage{
   display: flex;
+  flex-basis: auto;
   justify-content: space-evenly;
   background-color: green;
 }
+
+.admin_products_wrapper{
+  display: flex;
+  flex-basis: auto;
+  padding: 10px;
+}
+
 
 .admin_form{
   display: flex;

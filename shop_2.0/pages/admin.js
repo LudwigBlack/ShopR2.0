@@ -1,22 +1,48 @@
 import { AdminProduct } from "../components/AdminProduct";
 import { useSnacks } from "../contexts/SnacksProvider";
+import { useDrinks } from "../contexts/DrinksProvider";
+import { useSpirits } from "../contexts/SpiritsProvider";
 import { Form } from "../components/Form";
 
 import styles from "../styles/Home.module.css";
 
 const Admin = () => {
   const snacksState = useSnacks();
-  // const handleCLick = () => onClickHandler({ id, type: "ADD_PRODUCT" });
+  const dispatchSnacks = useSnacks().dispatch;
 
-  const allProducts = snacksState.state.map((product) => (
-    <AdminProduct key={product.id} {...product} />
+  const drinksState = useDrinks();
+  const dispatchDrinks = useDrinks().dispatch;
+
+  const spiritsState = useSpirits();
+  const dispatchSpirits = useSpirits().dispatch;
+
+  const snacksProducts = snacksState.state.map((product) => (
+    <AdminProduct key={product.id} dispatch={dispatchSnacks} {...product} />
+  ));
+
+  const drinksProducts = drinksState.state.map((product) => (
+    <AdminProduct key={product.id} dispatch={dispatchDrinks} {...product} />
+  ));
+
+  const spiritsProducts = spiritsState.state.map((product) => (
+    <AdminProduct key={product.id} dispatch={dispatchSpirits} {...product} />
   ));
 
   return (
     <div className={styles.adminPage}>
-      <div className={styles.snacksPage}>
+      <div className={styles.admin_products_wrapper}>
         <div className={styles.snacksPage_wrapper}>
-          <div>{allProducts}</div>
+          <div>{snacksProducts}</div>
+        </div>
+      </div>
+      <div className={styles.admin_products_wrapper}>
+        <div className={styles.snacksPage_wrapper}>
+          <div>{drinksProducts}</div>
+        </div>
+      </div>
+      <div className={styles.admin_products_wrapper}>
+        <div className={styles.snacksPage_wrapper}>
+          <div>{spiritsProducts}</div>
         </div>
       </div>
       <div className={styles.snacksPage}>
