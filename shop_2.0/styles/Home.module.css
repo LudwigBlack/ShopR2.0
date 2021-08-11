@@ -94,6 +94,12 @@ justify-content: flex-end;
   background-color: rgb(175, 60, 60);
 }
 
+.cart_header {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: space-between;
+}
+
 .adminPage{
   display: flex;
   flex-basis: auto;

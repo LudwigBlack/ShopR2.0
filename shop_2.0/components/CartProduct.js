@@ -7,6 +7,8 @@ export const CartProduct = ({ id, name, price }) => {
     <div className={styles.productsWrapper}>
       <p>{name}</p>
       <p>{`${price} zł`}</p>
+      <p>{item.quantity}</p>
+      <p>$ {item.quantity * item.price}</p>
     </div>
   );
 };
