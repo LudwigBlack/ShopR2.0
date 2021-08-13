@@ -7,17 +7,24 @@ const Cart = () => {
   const cartState = useCart();
   // const handleCLick = () => onClickHandler({ id, type: "ADD_PRODUCT" });
 
-  const filteredState = new Set();
+  // const filteredState = new Set();
 
-  const filteredArr = cartState.state.filter((el) => {
-    const duplicate = filteredState.has(el.id);
-    filteredState.add(el.id);
-    return !duplicate;
-  });
+  // const filteredArr = cartState.state.filter((el) => {
+  //   const duplicate = filteredState.has(el.id);
+  //   filteredState.add(el.id);
+  //   return !duplicate;
+  // });
 
-  const allProducts = filteredArr.map((product) => (
-    <CartProduct key={product.id + product.category} {...product} />
+  const allProducts = Object.entries(cartState.state);
+
+  console.log(allProducts);
+
+  const newProducts = allProducts.map((product) => (
+    <CartProduct key={product[0]} {...product[1]} />
   ));
+
+  //   <CartProduct key={product.key} {...product} />
+  //console.log(allProducts);
 
   return (
     <div className={styles.cartPage}>
@@ -30,7 +37,7 @@ const Cart = () => {
           <div>Total Price</div>
         </div>
         <div className={styles.cartProducts_Wrapper}>
-          <div>{allProducts}</div>
+          <div>{newProducts}</div>
         </div>
       </main>
     </div>
