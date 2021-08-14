@@ -1,13 +1,13 @@
 import { Product } from "../components/Product";
-import { useSnacks } from "../contexts/SnacksProvider";
+import { useProducts } from "../contexts/ProductsProvider";
 
 import styles from "../styles/Home.module.css";
 
 const Snacks = () => {
-  const snacksState = useSnacks();
+  const snacksState = useProducts().snacks;
   // const handleCLick = () => onClickHandler({ id, type: "ADD_PRODUCT" });
 
-  const allProducts = snacksState.state.map((product) => (
+  const allProducts = snacksState.map((product) => (
     <Product key={product.id + product.category} {...product} />
   ));
 

@@ -46,6 +46,22 @@ const cartReducer = (state, action) => {
         };
       }
     }
+    case "ADD_QUANTITY": {
+      console.log("dziala");
+      //const key = action.id + action.category;
+
+      const key = action.keyName;
+      console.log(keyName);
+      if (state[key]) {
+        return {
+          ...state,
+          [key]: {
+            ...state[key],
+            quantity: state[key].quantity + 1,
+          },
+        };
+      }
+    }
     default:
       throw new Error("Something went wrong!");
   }

@@ -1,13 +1,13 @@
 import { Product } from "../components/Product";
-import { useSpirits } from "../contexts//SpiritsProvider";
+import { useProducts } from "../contexts/ProductsProvider";
 
 import styles from "../styles/Home.module.css";
 
 const Spirits = () => {
-  const spiritsState = useSpirits();
+  const spiritsState = useProducts().spirits;
   // const handleCLick = () => onClickHandler({ id, type: "ADD_PRODUCT" });
 
-  const allProducts = spiritsState.state.map((product) => (
+  const allProducts = spiritsState.map((product) => (
     <Product key={product.id + product.category} {...product} />
   ));
 

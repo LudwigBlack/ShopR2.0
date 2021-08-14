@@ -1,6 +1,6 @@
-import { useSnacks } from "../contexts/SnacksProvider";
-import { useDrinks } from "../contexts/DrinksProvider";
-import { useSpirits } from "../contexts/SpiritsProvider";
+// import { useSnacks } from "../contexts/SnacksProvider";
+// import { useDrinks } from "../contexts/DrinksProvider";
+// import { useSpirits } from "../contexts/SpiritsProvider";
 
 import styles from "../styles/Home.module.css";
 

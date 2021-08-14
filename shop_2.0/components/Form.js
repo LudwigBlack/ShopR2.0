@@ -1,18 +1,16 @@
-import { useSnacks } from "../contexts/SnacksProvider";
-import { useDrinks } from "../contexts/DrinksProvider";
-import { useSpirits } from "../contexts/SpiritsProvider";
+import { useProducts } from "../contexts/ProductsProvider";
 
 import styles from "../styles/Home.module.css";
 
 export const Form = () => {
-  const dispatchSnack = useSnacks().dispatch;
-  const stateSnack = useSnacks().state;
+  const dispatchSnack = useProducts().dispatch;
+  const stateSnack = useProducts().snacks;
 
-  const dispatchDrink = useDrinks().dispatch;
-  const stateDrink = useDrinks().state;
+  const dispatchDrink = useProducts().dispatch;
+  const stateDrink = useProducts().drinks;
 
-  const dispatchSpirit = useSpirits().dispatch;
-  const stateSpirit = useSpirits().state;
+  const dispatchSpirit = useProducts().dispatch;
+  const stateSpirit = useProducts().spirits;
 
   let name;
   let price;

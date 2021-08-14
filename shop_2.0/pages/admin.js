@@ -1,22 +1,22 @@
 import { AdminProduct } from "../components/AdminProduct";
-import { useSnacks } from "../contexts/SnacksProvider";
-import { useDrinks } from "../contexts/DrinksProvider";
-import { useSpirits } from "../contexts/SpiritsProvider";
+
+import { useProducts } from "../contexts/ProductsProvider";
+
 import { Form } from "../components/Form";
 
 import styles from "../styles/Home.module.css";
 
 const Admin = () => {
-  const snacksState = useSnacks();
-  const dispatchSnacks = useSnacks().dispatch;
+  const snacksState = useProducts().snacks;
+  const dispatchSnacks = useProducts().dispatch;
 
-  const drinksState = useDrinks();
-  const dispatchDrinks = useDrinks().dispatch;
+  const drinksState = useProducts().drinks;
+  const dispatchDrinks = useProducts().dispatch;
 
-  const spiritsState = useSpirits();
-  const dispatchSpirits = useSpirits().dispatch;
+  const spiritsState = useProducts().spirits;
+  const dispatchSpirits = useProducts().dispatch;
 
-  const snacksProducts = snacksState.state.map((product) => (
+  const snacksProducts = snacksState.map((product) => (
     <AdminProduct
       key={product.id + product.category}
       dispatch={dispatchSnacks}
@@ -24,7 +24,7 @@ const Admin = () => {
     />
   ));
 
-  const drinksProducts = drinksState.state.map((product) => (
+  const drinksProducts = drinksState.map((product) => (
     <AdminProduct
       key={product.id + product.category}
       dispatch={dispatchDrinks}
@@ -32,7 +32,7 @@ const Admin = () => {
     />
   ));
 
-  const spiritsProducts = spiritsState.state.map((product) => (
+  const spiritsProducts = spiritsState.map((product) => (
     <AdminProduct
       key={product.id + product.category}
       dispatch={dispatchSpirits}
