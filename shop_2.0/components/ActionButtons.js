@@ -2,20 +2,30 @@
 import { useCart } from "../contexts/CartProvider";
 import styles from "../styles/Home.module.css";
 
-function ActionButtons({ keyName }) {
-  //console.log(id);
+function ActionButtons({ product }) {
+  console.log(product);
   const { dispatch } = useCart();
 
-  const handleCLick = () => {
+  const handleAddOne = () => {
     //console.log(id);
-    dispatch({ keyName, type: "ADD_QUANTITY" });
+    dispatch({ product, type: "ADD_QUANTITY" });
+  };
+
+  const handleSubstractOne = () => {
+    //console.log(id);
+    dispatch({ product, type: "SUBSTRACT_QUANTITY" });
+  };
+
+  const handleDelete = () => {
+    //console.log(id);
+    dispatch({ product, type: "DELETE_PRODUCT" });
   };
 
   return (
-    <div>
-      <button onClick={handleCLick}>+</button>
-      <button>-</button>
-      <button>Usuń produkt</button>
+    <div className={styles.actionButtonsWrapper}>
+      <button onClick={handleAddOne}>+</button>
+      <button onClick={handleSubstractOne}>-</button>
+      <button onClick={handleDelete}>Delete</button>
     </div>
   );
 }

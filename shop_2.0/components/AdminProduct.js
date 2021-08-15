@@ -12,7 +12,7 @@ export const AdminProduct = ({ id, dispatch, name, price }) => {
     dispatch({ id, type: "DELETE_PRODUCT" });
   };
   return (
-    <div className={styles.productsWrapper}>
+    <div className={styles.adminProductsWrapper}>
       <p>{name}</p>
       <p>{`${price} zł`}</p>
       <button onClick={handleCLick}>Usuń produkt</button>

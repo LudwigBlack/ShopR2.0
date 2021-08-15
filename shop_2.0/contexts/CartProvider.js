@@ -50,8 +50,8 @@ const cartReducer = (state, action) => {
       console.log("dziala");
       //const key = action.id + action.category;
 
-      const key = action.keyName;
-      console.log(keyName);
+      const key = action.product;
+      console.log(key);
       if (state[key]) {
         return {
           ...state,
@@ -61,6 +61,36 @@ const cartReducer = (state, action) => {
           },
         };
       }
+    }
+    case "SUBSTRACT_QUANTITY": {
+      console.log("dziala");
+      //const key = action.id + action.category;
+
+      const key = action.product;
+      console.log(key);
+      if (state[key]) {
+        if (state[key].quantity > 0) {
+          return {
+            ...state,
+            [key]: {
+              ...state[key],
+              quantity: state[key].quantity - 1,
+            },
+          };
+        } else {
+          return state;
+        }
+      }
+    }
+    case "DELETE_PRODUCT": {
+      const key = action.product;
+      //console.log(key);
+      const filteredByKey = Object.fromEntries(
+        Object.entries(state).filter(([name, value]) => name !== key)
+      );
+      return {
+        ...filteredByKey,
+      };
     }
     default:
       throw new Error("Something went wrong!");
