@@ -1,14 +1,15 @@
 import styles from "../styles/Home.module.css";
 
-const Login = () => {
+const Register = () => {
   return (
     <div className={styles.login_page}>
       <div className={styles.login_form_wrapper}>
         <form className={styles.login_form}>
-          <p>Please Log In</p>
+          <p>Please Register</p>
+          <input placeholder={"E-mail Adress"} />
           <input placeholder={"Username"} />
           <input placeholder={"Password"} />
-          <button>Log in</button>
+          <button>Register</button>
           <div className={styles.login_form_div}>
             <p>You don't have an account?</p>
             <p>
@@ -21,4 +22,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default Register;
