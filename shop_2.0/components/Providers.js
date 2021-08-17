@@ -1,13 +1,15 @@
 //import SnacksProvider from "../contexts/SnacksProvider";
 import CartProvider from "../contexts/CartProvider";
 import ProductsProvider from "../contexts/ProductsProvider";
-//import SpiritsProvider from "../contexts/SpiritsProvider";
+import AdminProvider from "../contexts/AdminProvider";
 
 const Providers = (props) => {
   return (
-    <ProductsProvider>
-      <CartProvider>{props.children}</CartProvider>
-    </ProductsProvider>
+    <AdminProvider>
+      <ProductsProvider>
+        <CartProvider>{props.children}</CartProvider>
+      </ProductsProvider>
+    </AdminProvider>
   );
 };
 
