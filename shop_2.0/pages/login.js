@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 import styles from "../styles/Home.module.css";
 
 const Login = () => {
@@ -11,9 +13,15 @@ const Login = () => {
           <button>Log in</button>
           <div className={styles.login_form_div}>
             <p>You don't have an account?</p>
-            <p>
-              <a href="#">Sing up</a>
-            </p>
+            <Link href="/register">
+              <a
+                style={{
+                  marginTop: "15px",
+                }}
+              >
+                Sing up
+              </a>
+            </Link>
           </div>
         </form>
       </div>

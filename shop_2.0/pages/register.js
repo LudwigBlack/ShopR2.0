@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 import styles from "../styles/Home.module.css";
 
 const Register = () => {
@@ -11,10 +13,10 @@ const Register = () => {
           <input placeholder={"Password"} />
           <button>Register</button>
           <div className={styles.login_form_div}>
-            <p>You don't have an account?</p>
-            <p>
-              <a href="#">Sing up</a>
-            </p>
+            <p>Already have an account?</p>
+            <Link href="/login">
+              <a>Log in</a>
+            </Link>
           </div>
         </form>
       </div>

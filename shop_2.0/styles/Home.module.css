@@ -217,3 +217,7 @@ justify-content: flex-end;
 .login_form_div a:hover { 
   color: red;
 }
+
+.login_form_Link {
+ align-self: center;
+}
