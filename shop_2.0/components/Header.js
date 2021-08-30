@@ -1,11 +1,17 @@
 import Button from "./Button";
 import IconButton from "./IconButton";
 import UserButton from "./LoginButton";
+import AdminButton from "./AdminButton";
+
+import { useAdmin } from "../contexts/AdminProvider";
+
 import styles from "../styles/Home.module.css";
 
 // const element = <FontAwesomeIcon icon={faCoffee} />;
 
 function Header() {
+  const stateOfAdmin = useAdmin().state;
+
   return (
     <nav className={styles.navbar}>
       <header className={styles.header}>
@@ -21,7 +27,11 @@ function Header() {
         <div className={styles.section_div}>
           <IconButton to={"/cart"} />
           {/* <Button to={"/cart"} name={`Cart`} /> */}
-          <UserButton to={"/login"} />
+          {stateOfAdmin ? (
+            <AdminButton to={"/login"} toAdmin={"/admin"} />
+          ) : (
+            <UserButton to={"/login"} />
+          )}
         </div>
       </section>
     </nav>

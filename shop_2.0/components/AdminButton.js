@@ -1,28 +1,38 @@
 import Link from "next/link";
 
+import { useAdmin } from "../contexts/AdminProvider";
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faUser } from "@fortawesome/free-solid-svg-icons";
+import { faUserCog } from "@fortawesome/free-solid-svg-icons";
 
 import styles from "../styles/Home.module.css";
 
-function UserButton({ to, toAdmin, toLogout }) {
+function AdminButton({ to, toAdmin }) {
+  const dispatchIsLogged = useAdmin().dispatch;
+
+  function handleCLick() {
+    dispatchIsLogged({ type: "UNLOGGED" });
+  }
   return (
     <div className={styles.dropdown}>
       <Link href={to}>
         <a className={styles.header_button}>
           <FontAwesomeIcon
-            icon={faUser}
+            icon={faUserCog}
             size="2x"
             //   className={styles.header_cart_icon}
           />
         </a>
       </Link>
       <div className={styles.dropdown_content}>
+        <Link href={toAdmin}>
+          <a>Admin</a>
+        </Link>
         <Link href={to}>
-          <a>Log out</a>
+          <a onClick={handleCLick}>Log out</a>
         </Link>
       </div>
     </div>
   );
 }
-export default UserButton;
+export default AdminButton;

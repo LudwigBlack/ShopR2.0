@@ -9,7 +9,7 @@ export const LoginUser = () => {
   const router = useRouter();
 
   const dispatchIsLogged = useAdmin().dispatch;
-  const stateOfAdmin = useAdmin().snacks;
+  const stateOfAdmin = useAdmin().state;
 
   let userName;
   let password;
