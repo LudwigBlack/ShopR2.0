@@ -1,6 +1,16 @@
 import Link from "next/link";
 
-export const Form = () => {
+import { useAdmin } from "../contexts/AdminProvider";
+import { useRouter } from "next/router";
+
+import styles from "../styles/Home.module.css";
+
+export const LoginUser = () => {
+  const router = useRouter();
+
+  const dispatchIsLogged = useAdmin().dispatch;
+  const stateOfAdmin = useAdmin().snacks;
+
   let userName;
   let password;
 
@@ -14,10 +24,20 @@ export const Form = () => {
 
   function handleSubmit(e) {
     e.preventDefault();
+    console.log(userName);
+    console.log(password);
+
+    if (userName === "AdminJohn" && password === "admin") {
+      const value = true;
+      dispatchIsLogged({ value, type: "LOGGED" });
+      router.push("/admin");
+    } else {
+      console.log("coś nie działa w handleSubmit");
+    }
   }
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className={styles.login_form}>
       <p>Please Log In</p>
       <input
         name="product name"

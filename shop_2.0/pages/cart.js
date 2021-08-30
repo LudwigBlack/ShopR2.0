@@ -23,8 +23,12 @@ const Cart = () => {
     <CartProduct key={product[0]} {...product[1]} />
   ));
 
-  //   <CartProduct key={product.key} {...product} />
-  //console.log(allProducts);
+  const totalValue = allProducts.reduce(
+    (prev, next) => prev + next[1].price,
+    0
+  );
+
+  //console.log(totalValue);
 
   return (
     <div className={styles.cartPage}>
@@ -38,6 +42,12 @@ const Cart = () => {
         </div>
         <div className={styles.cartProducts_Wrapper}>
           <div>{newProducts}</div>
+        </div>
+        <div className={styles.total_value_wrapper}>
+          <div>
+            <p>Total Cart Value</p>
+            <p>{totalValue}</p>
+          </div>
         </div>
       </main>
     </div>

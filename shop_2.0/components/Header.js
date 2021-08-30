@@ -1,5 +1,9 @@
 import Button from "./Button";
+import IconButton from "./IconButton";
+import UserButton from "./LoginButton";
 import styles from "../styles/Home.module.css";
+
+// const element = <FontAwesomeIcon icon={faCoffee} />;
 
 function Header() {
   return (
@@ -15,8 +19,9 @@ function Header() {
       </header>
       <section className={styles.section}>
         <div className={styles.section_div}>
-          <Button to={"/cart"} name={`Cart`} />
-          <Button to={"/login"} name={`Login`} />
+          <IconButton to={"/cart"} />
+          {/* <Button to={"/cart"} name={`Cart`} /> */}
+          <UserButton to={"/login"} />
         </div>
       </section>
     </nav>
