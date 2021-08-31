@@ -11,11 +11,11 @@ export const LoginUser = () => {
   const dispatchIsLogged = useAdmin().dispatch;
   const stateOfAdmin = useAdmin().state;
 
-  let userName;
+  let userNameInput;
   let password;
 
   function handleChangeUserName(e) {
-    userName = e.target.value;
+    userNameInput = e.target.value;
   }
 
   function handleChangePassword(e) {
@@ -24,10 +24,20 @@ export const LoginUser = () => {
 
   function handleSubmit(e) {
     e.preventDefault();
-    console.log(userName);
+    //console.log(userName);
     console.log(password);
 
-    if (userName === "AdminJohn" && password === "admin") {
+    const item = JSON.parse(window.localStorage.getItem("user"));
+    console.log(item);
+    const userLogged = item.find((user, index) => {
+      if (user.userName == userNameInput) {
+        return true;
+      }
+    });
+
+    console.log(userLogged);
+
+    if (userNameInput === "AdminJohn" && password === "admin") {
       const value = true;
       dispatchIsLogged({ value, type: "LOGGED" });
       router.push("/admin");

@@ -3,34 +3,59 @@ import { useState } from "react";
 
 import styles from "../styles/Home.module.css";
 
+const DEFAULT_PERSON = {
+  userEmailAddress: "",
+  userName: "",
+  password: "",
+};
+
 const Register = () => {
-  const person = {
-    userEmailAdress: "",
-    userName: "",
-    password: "",
-  };
-  const [name, setName] = useLocalStorage("user", person);
+  // const person = {
+  //   userEmailAdress: "",
+  //   userName: "",
+  //   password: "",
+  // };
+  const [person, setPerson] = useState(DEFAULT_PERSON);
+  const [name, setName] = useLocalStorage("user", [person]);
 
   // let userEmailAdress;
   // let userName;
   // let password;
 
   function handleChangeEmailAdress(e) {
-    person.userEmailAdress = e.target.value;
+    const userEmailAddress = e.target.value;
+    setPerson((prevPerson) => ({
+      ...prevPerson,
+      userEmailAddress,
+    }));
   }
 
   function handleChangeUserName(e) {
-    person.userName = e.target.value;
+    const userName = e.target.value;
+    setPerson((prevPerson) => ({ ...prevPerson, userName }));
   }
 
   function handleChangePassword(e) {
-    person.password = e.target.value;
+    const password = e.target.value;
+    setPerson((prevPerson) => ({ ...prevPerson, password }));
   }
+
+  // function handleChange(e) {
+  //   const { userEmailAddress, userName, password } = e.target.value;
+
+  //   setPerson((prevPerson) => ({
+  //     ...prevPerson,
+  //     userEmailAddress,
+  //     userName,
+  //     password,
+  //   }));
+  // }
 
   function handleRegisterSubmit(e) {
     e.preventDefault();
     //console.log(person);
-    setName(person);
+    setName(name.concat(person));
+    setPerson(DEFAULT_PERSON);
   }
   return (
     <div className={styles.login_page}>
@@ -41,19 +66,19 @@ const Register = () => {
             placeholder={"E-mail Adress"}
             type="text"
             onChange={handleChangeEmailAdress}
-            // value={name.userEmailAdress}
+            value={person.userEmailAddress}
           />
           <input
             placeholder={"Username"}
             type="text"
             onChange={handleChangeUserName}
-            // value={name.userName}
+            value={person.userName}
           />
           <input
             placeholder={"Password"}
             type="text"
             onChange={handleChangePassword}
-            // value={name.password}
+            value={person.password}
           />
           <button type="submit">Register</button>
           <div className={styles.login_form_div}>
