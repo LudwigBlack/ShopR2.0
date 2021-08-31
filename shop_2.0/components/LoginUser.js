@@ -40,7 +40,6 @@ export const LoginUser = () => {
     <form onSubmit={handleSubmit} className={styles.login_form}>
       <p>Please Log In</p>
       <input
-        name="product name"
         type="text"
         placeholder="UserName"
         onChange={handleChangeUserName}
