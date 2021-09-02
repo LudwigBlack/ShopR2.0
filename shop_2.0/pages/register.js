@@ -2,6 +2,7 @@ import Link from "next/link";
 import { useState } from "react";
 import { useRouter } from "next/router";
 import { useFormik } from "formik";
+import RegisterPopup from "../components/RegisterPopup";
 
 import styles from "../styles/Home.module.css";
 
@@ -60,6 +61,7 @@ const validate = (values) => {
 const Register = () => {
   //const [person, setPerson] = useState(DEFAULT_PERSON);
   const [name, setName] = useLocalStorage("user", []);
+  const [showModal, setShowModal] = useState(true);
   const router = useRouter();
 
   const formik = useFormik({
@@ -119,6 +121,7 @@ const Register = () => {
           </div>
         </form>
       </div>
+      <RegisterPopup onClose={() => setShowModal(false)} show={showModal} />
     </div>
   );
 };
