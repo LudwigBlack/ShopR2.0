@@ -51,3 +51,7 @@ subgraph.yaml
 /packages/subgraph/src/addresses.ts
 
 .idea
+
+# Files
+
+register2.*
