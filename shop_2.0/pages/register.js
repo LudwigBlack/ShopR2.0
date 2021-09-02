@@ -1,85 +1,115 @@
 import Link from "next/link";
 import { useState } from "react";
+import { useRouter } from "next/router";
+import { useFormik } from "formik";
 
 import styles from "../styles/Home.module.css";
 
 const DEFAULT_PERSON = {
-  userEmailAddress: "",
+  email: "",
   userName: "",
   password: "",
+  isLogged: "false",
+};
+
+const validate = (values) => {
+  const errors = {};
+
+  const item = JSON.parse(window.localStorage.getItem("user"));
+
+  function filterStorage(name, value) {
+    if (item) {
+      const filtered = item.find((product) => product[name] == value);
+      if (filtered) {
+        return true;
+      }
+    } else {
+      return false;
+    }
+  }
+
+  if (!values.userName) {
+    errors.userName = "Required";
+  } else if (values.userName.length > 15) {
+    errors.userName = "Must be 15 characters or less";
+  } else if (values.userName.length < 3) {
+    errors.userName = "Must be 4 character lenght or more";
+  } else if (!/^[a-zA-Z0-9]+$/i.test(values.userName)) {
+    errors.userName = "User name is invalid";
+  } else if (filterStorage("userName", values.userName)) {
+    errors.userName = "This login is already used";
+  }
+
+  if (!values.password) {
+    errors.password = "Required";
+  } else if (values.password.length > 20) {
+    errors.password = "Must be 20 characters or less";
+  }
+
+  if (!values.email) {
+    errors.email = "Required";
+  } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)) {
+    errors.email = "Invalid email address";
+  } else if (filterStorage("email", values.email)) {
+    errors.email = "This email is already used";
+  }
+
+  return errors;
 };
 
 const Register = () => {
-  // const person = {
-  //   userEmailAdress: "",
-  //   userName: "",
-  //   password: "",
-  // };
-  const [person, setPerson] = useState(DEFAULT_PERSON);
-  const [name, setName] = useLocalStorage("user", [person]);
+  //const [person, setPerson] = useState(DEFAULT_PERSON);
+  const [name, setName] = useLocalStorage("user", []);
+  const router = useRouter();
 
-  // let userEmailAdress;
-  // let userName;
-  // let password;
+  const formik = useFormik({
+    initialValues: {
+      email: "",
+      userName: "",
+      password: "",
+      isLogged: "false",
+    },
 
-  function handleChangeEmailAdress(e) {
-    const userEmailAddress = e.target.value;
-    setPerson((prevPerson) => ({
-      ...prevPerson,
-      userEmailAddress,
-    }));
-  }
+    validate,
+    onSubmit: (values) => {
+      setName(name.concat(values));
 
-  function handleChangeUserName(e) {
-    const userName = e.target.value;
-    setPerson((prevPerson) => ({ ...prevPerson, userName }));
-  }
+      router.push("/login");
+    },
+  });
 
-  function handleChangePassword(e) {
-    const password = e.target.value;
-    setPerson((prevPerson) => ({ ...prevPerson, password }));
-  }
-
-  // function handleChange(e) {
-  //   const { userEmailAddress, userName, password } = e.target.value;
-
-  //   setPerson((prevPerson) => ({
-  //     ...prevPerson,
-  //     userEmailAddress,
-  //     userName,
-  //     password,
-  //   }));
-  // }
-
-  function handleRegisterSubmit(e) {
-    e.preventDefault();
-    //console.log(person);
-    setName(name.concat(person));
-    setPerson(DEFAULT_PERSON);
-  }
   return (
     <div className={styles.login_page}>
       <div className={styles.login_form_wrapper}>
-        <form onSubmit={handleRegisterSubmit} className={styles.login_form}>
+        <form className={styles.login_form} onSubmit={formik.handleSubmit}>
           <p>Please Register</p>
           <input
             placeholder={"E-mail Adress"}
             type="text"
-            onChange={handleChangeEmailAdress}
-            value={person.userEmailAddress}
+            onChange={formik.handleChange}
+            value={formik.values.email}
+            // value={person.userEmailAddress}
+            name="email"
           />
+          {formik.errors.email ? <div>{formik.errors.email}</div> : null}{" "}
           <input
             placeholder={"Username"}
             type="text"
-            onChange={handleChangeUserName}
-            value={person.userName}
+            onChange={formik.handleChange}
+            value={formik.values.userName}
+            // value={person.userName}
+            name="userName"
           />
+          {formik.errors.userName ? <div>{formik.errors.userName}</div> : null}{" "}
           <input
             placeholder={"Password"}
             type="text"
-            onChange={handleChangePassword}
-            value={person.password}
+            onChange={formik.handleChange}
+            value={formik.values.password}
+            name="password"
+            // ref={register}
           />
+          {formik.errors.password ? <div>{formik.errors.password}</div> : null}
           <button type="submit">Register</button>
           <div className={styles.login_form_div}>
             <p>Already have an account?</p>
