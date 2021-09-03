@@ -6,13 +6,6 @@ import RegisterPopup from "../components/RegisterPopup";
 
 import styles from "../styles/Home.module.css";
 
-const DEFAULT_PERSON = {
-  email: "",
-  userName: "",
-  password: "",
-  isLogged: "false",
-};
-
 const validate = (values) => {
   const errors = {};
 
@@ -75,7 +68,7 @@ const Register = () => {
     validate,
     onSubmit: (values) => {
       setName(name.concat(values));
-
+      () => setShowModal(true);
       router.push("/login");
     },
   });
@@ -121,6 +114,7 @@ const Register = () => {
           </div>
         </form>
       </div>
+
       <RegisterPopup onClose={() => setShowModal(false)} show={showModal} />
     </div>
   );
