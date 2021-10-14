@@ -67,6 +67,7 @@ justify-content: flex-end;
 
 .snacksPage{
   display: flex;
+  flex-direction: column;
   /* padding-left: 200px;
   padding-top: 100px; */
 }
@@ -77,6 +78,24 @@ justify-content: flex-end;
   flex-basis: 600px;
   padding: 10px;
   border: 2px solid orange;
+}
+
+.products_descritpion{
+  display: flex;
+  width: 1010px;
+  height: 40px;
+  justify-content: space-between;
+  margin: 15px;
+  
+  /* border: 2px solid green; */
+  background-color: palegreen;
+}
+
+.products_descritpion div{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-basis: 200px;
 }
 
 .productsWrapper{
@@ -94,7 +113,16 @@ justify-content: flex-end;
 }
 
 .productsWrapper div{
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
   flex-basis: 200px;
+}
+
+
+.buyButton{
+  width: 40%;
+  height: 80%;
 }
 
 .cartPage{
