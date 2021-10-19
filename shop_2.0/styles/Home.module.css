@@ -85,7 +85,7 @@ justify-content: flex-end;
   width: 1010px;
   height: 40px;
   justify-content: space-between;
-  margin: 15px;
+  margin: 12px;
   
   /* border: 2px solid green; */
   background-color: palegreen;
@@ -134,12 +134,12 @@ justify-content: flex-end;
 .mainWrapper{
   /* flex-direction: ; */
   width: 1010px;
-  height: 500px;
+  height: auto;
   /* background-color: lightblue; */
 }
 
 .cartProducts_Wrapper{
-  height: 200px;
+  height: auto;
   background-color: rgb(175, 60, 60);
 }
 

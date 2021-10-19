@@ -13,6 +13,11 @@ const Snacks = () => {
 
   return (
     <div className={styles.snacksPage}>
+      <div className={styles.products_descritpion}>
+        <div>Product name</div>
+        <div>Product price</div>
+        <div>Click to Buy</div>
+      </div>
       <div className={styles.snacksPage_wrapper}>
         <div>{allProducts}</div>
       </div>

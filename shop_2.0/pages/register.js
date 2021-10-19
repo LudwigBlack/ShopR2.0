@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import { useFormik } from "formik";
 import RegisterPopup from "../components/RegisterPopup";
@@ -54,8 +54,39 @@ const validate = (values) => {
 const Register = () => {
   //const [person, setPerson] = useState(DEFAULT_PERSON);
   const [name, setName] = useLocalStorage("user", []);
-  const [showModal, setShowModal] = useState(true);
+  const [showModal, setShowModal] = useState(false);
+  const [shot, setShot] = useState(false);
   const router = useRouter();
+
+  let item;
+  let item2;
+
+  if (typeof window !== "undefined") {
+    if (typeof window.localStorage.getItem("user") == "null") {
+      item = 0;
+    } else {
+      item = 0;
+      //console.log(`window działa ${item}`)
+    }
+    // item = JSON.parse(window.localStorage.getItem("user")).length;
+    //console.log(`window działa ${item}`);
+  } else if (typeof window == "null") {
+    item = 0;
+  }
+
+  // useEffect(() => {
+  //   setShowModal(true);
+  //   //console.log(showModal);
+  // }, [item]);
+
+  function compare(a, b) {
+    if (a < b) {
+      setShowModal(true);
+      console.log(showModal);
+    }
+  }
+
+  const bool = true;
 
   const formik = useFormik({
     initialValues: {
@@ -63,13 +94,22 @@ const Register = () => {
       userName: "",
       password: "",
       isLogged: "false",
+      newCreated: "true",
     },
 
     validate,
     onSubmit: (values) => {
+      // const bool = true;
+      // setShowModal(bool);
       setName(name.concat(values));
-      () => setShowModal(true);
-      router.push("/login");
+      //hot(newValue);
+      // console.log(showModal);
+
+      // console.log(showModal);
+      // router.push("/login");
+      // item2 = JSON.parse(window.localStorage.getItem("user")).length;
+      // console.log(item, item2);
+      // compare(item, item2);
     },
   });
 
@@ -115,7 +155,9 @@ const Register = () => {
         </form>
       </div>
 
-      <RegisterPopup onClose={() => setShowModal(false)} show={showModal} />
+      {shot ? (
+        <RegisterPopup onClose={() => setShowModal(false)} show={showModal} />
+      ) : null}
     </div>
   );
 };

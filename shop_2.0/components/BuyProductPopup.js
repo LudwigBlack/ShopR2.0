@@ -1,13 +1,9 @@
-import { useState, useEffect } from "react";
+import { useState, useRef, useEffect } from "react";
 import ReactDOM from "react-dom";
 import styles from "../styles/Home.module.css";
 
-const RegisterPopup = ({ show, onClose, children, set }) => {
+const BuyPopup = ({ show, onClose, children }) => {
   const [isBrowser, setIsBrowser] = useState(false);
-
-  // console.log(show);
-
-  set.setShot(false);
 
   useEffect(() => {
     setIsBrowser(true);
@@ -27,8 +23,8 @@ const RegisterPopup = ({ show, onClose, children, set }) => {
           </a>
         </div>
         {/* {title && <StyledModalTitle>{title}</StyledModalTitle>} */}
-        <p>Hello</p>
-        <p>Your account has been created. You can can log in now.</p>
+        <p>Dodałeś produkt do koszyka!</p>
+        <p></p>
         <div className={styles.popup_body}>{children}</div>
         <button onClick={handleCloseClick}>OK</button>
       </div>
@@ -45,4 +41,4 @@ const RegisterPopup = ({ show, onClose, children, set }) => {
   }
 };
 
-export default RegisterPopup;
+export default BuyPopup;
