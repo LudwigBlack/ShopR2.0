@@ -19,11 +19,16 @@
 .header_buttons_wrapper{
   display: flex;
   width: 800px;
-  /* align-items: space-between; */
+  align-items: flex-end;
   justify-content: space-around;
   margin-bottom: 10px;
   /* background-color: blanchedalmond; */
 }
+
+.logo_wrapper{
+  margin-right: 80px;;
+}
+
 
 .section{
   display: flex;
@@ -63,6 +68,28 @@ justify-content: flex-end;
   height: 50px;
 }
 
+ /* Main page */
+
+.mainPage{
+  display: flex;
+  justify-content: center;
+  
+  background-color: green;
+}
+
+.mainPage_wrapper{
+  display: flex;
+  justify-content: center;
+  width: 1200px;
+  height: 600px;
+  background-color: greenyellow;
+}
+
+.mainPage_h1_wrapper{
+  height:200px;
+  background-color: rgb(170, 243, 170);
+
+}
 
 
 .snacksPage{

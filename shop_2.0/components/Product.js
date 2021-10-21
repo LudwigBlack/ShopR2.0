@@ -22,7 +22,7 @@ export const Product = ({ id, category, name, price, setShow }) => {
       <div>
         <button
           onClick={() => {
-            handleCLick(), setShow();
+            handleCLick(), setShow(name);
           }}
           // onClick={setShow}
           className={styles.buyButton}

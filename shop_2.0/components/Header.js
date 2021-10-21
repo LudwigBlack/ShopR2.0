@@ -15,6 +15,9 @@ function Header() {
   return (
     <nav className={styles.navbar}>
       <header className={styles.header}>
+        <div className={styles.logo_wrapper}>
+          <img src="\Frame 1.png" />
+        </div>
         <div className={styles.header_buttons_wrapper}>
           <Button to={"/snacks"} name={`Snacks`} />
 

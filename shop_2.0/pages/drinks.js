@@ -7,12 +7,14 @@ import styles from "../styles/Home.module.css";
 
 const Drinks = () => {
   const [showModal, setShowModal] = useState(false);
+  const [name, setName] = useState("");
   const drinksState = useProducts().drinks;
   // const handleCLick = () => onClickHandler({ id, type: "ADD_PRODUCT" });
 
-  function playmodal() {
+  function playmodal(productName) {
     console.log("Play działa");
     setShowModal(true);
+    setName(productName);
   }
 
   const allProducts = drinksState.map((product) => (
@@ -33,7 +35,11 @@ const Drinks = () => {
       <div className={styles.snacksPage_wrapper}>
         <div>{allProducts}</div>
       </div>
-      <BuyPopup onClose={() => setShowModal(false)} show={showModal} />
+      <BuyPopup
+        onClose={() => setShowModal(false)}
+        show={showModal}
+        prod={name}
+      />
     </div>
   );
 };

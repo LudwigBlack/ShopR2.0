@@ -2,7 +2,7 @@ import { useState, useRef, useEffect } from "react";
 import ReactDOM from "react-dom";
 import styles from "../styles/Home.module.css";
 
-const BuyPopup = ({ show, onClose, children }) => {
+const BuyPopup = ({ show, onClose, children, prod }) => {
   const [isBrowser, setIsBrowser] = useState(false);
 
   useEffect(() => {
@@ -23,7 +23,7 @@ const BuyPopup = ({ show, onClose, children }) => {
           </a>
         </div>
         {/* {title && <StyledModalTitle>{title}</StyledModalTitle>} */}
-        <p>Dodałeś produkt do koszyka!</p>
+        <p>{`Dodałeś produkt ${prod} do koszyka!`}</p>
         <p></p>
         <div className={styles.popup_body}>{children}</div>
         <button onClick={handleCloseClick}>OK</button>
