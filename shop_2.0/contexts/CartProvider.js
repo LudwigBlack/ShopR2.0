@@ -1,21 +1,6 @@
 import { useReducer, createContext, useContext } from "react";
 
-const cart = {
-  "1Snacks": {
-    id: 1,
-    category: "Snacks",
-    name: "Orzeszki solone",
-    price: 8,
-    quantity: 1,
-  },
-  "2Snacks": {
-    id: 2,
-    category: "Snacks",
-    name: "Batonik Mars",
-    price: 3,
-    quantity: 1,
-  },
-};
+const cart = {};
 
 const CartContext = createContext();
 

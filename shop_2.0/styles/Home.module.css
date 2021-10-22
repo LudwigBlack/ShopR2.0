@@ -74,21 +74,63 @@ justify-content: flex-end;
   display: flex;
   justify-content: center;
   
-  background-color: green;
+  /* background-color: green; */
 }
 
 .mainPage_wrapper{
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  justify-content: space-around;
   width: 1200px;
-  height: 600px;
-  background-color: greenyellow;
+  height: 800px;
+  /* background-color: greenyellow; */
 }
 
-.mainPage_h1_wrapper{
+.welcome_wrapper{
+  display: flex;
+  justify-content: center;
   height:200px;
-  background-color: rgb(170, 243, 170);
 
+}
+.mainPage_h1_wrapper{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  
+  /* background-color: rgb(170, 243, 170); */
+
+}
+
+.or_wrapper{
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  height: 160px;
+}
+
+.options_wrapper {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+  height: 600px;
+  width: auto;
+  /* background-color: blue; */
+}
+
+.options_wrapper div {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  height: 300px;
+  width: 300px;
+  border: 2px solid orange;
+}
+
+.options_wrapper button {
+  height: 40px;
+  width: 80px;
 }
 
 

@@ -2,6 +2,7 @@ import Link from "next/link";
 
 import { useAdmin } from "../contexts/AdminProvider";
 import { useRouter } from "next/router";
+import { useUser } from "../contexts/UserProvider";
 
 import styles from "../styles/Home.module.css";
 
@@ -10,6 +11,9 @@ export const LoginUser = () => {
 
   const dispatchIsLogged = useAdmin().dispatch;
   const stateOfAdmin = useAdmin().state;
+
+  const dispatchUserLogged = useUser().dispatch;
+  const stateOfUser = useUser().state;
 
   let userNameInput;
   let password;
@@ -24,18 +28,29 @@ export const LoginUser = () => {
 
   function handleSubmit(e) {
     e.preventDefault();
-    //console.log(userName);
-    console.log(password);
+    // console.log(userName);
+    // console.log(password);
 
     const item = JSON.parse(window.localStorage.getItem("user"));
-    console.log(item);
-    const userLogged = item.find((user, index) => {
-      if (user.userName == userNameInput) {
-        return true;
-      }
-    });
 
+    console.log(item);
+
+    const userLogged = item.find((user) => user.userName == userNameInput);
     console.log(userLogged);
+
+    if (userLogged) {
+      const { userName } = userLogged;
+      const payload = {
+        isLogged: true,
+        userName: userName,
+      };
+      dispatchUserLogged({ type: "LOGGED", payload });
+      console.log("Weszło do dispacza");
+      router.push("/snacks");
+    } else {
+      console.log(`Nie znaleziono userLogged: ${userLogged}`);
+    }
+    // console.log(userLogged);
 
     if (userNameInput === "AdminJohn" && password === "admin") {
       const value = true;

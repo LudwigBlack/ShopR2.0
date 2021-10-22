@@ -24,7 +24,7 @@ const Cart = () => {
   ));
 
   const totalValue = allProducts.reduce(
-    (prev, next) => prev + next[1].price,
+    (prev, next) => prev + next[1].price * next[1].quantity,
     0
   );
 

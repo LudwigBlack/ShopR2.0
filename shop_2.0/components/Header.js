@@ -2,8 +2,10 @@ import Button from "./Button";
 import IconButton from "./IconButton";
 import UserButton from "./LoginButton";
 import AdminButton from "./AdminButton";
+import UserLoggedButton from "./UserButon";
 
 import { useAdmin } from "../contexts/AdminProvider";
+import { useUser } from "../contexts/UserProvider";
 
 import styles from "../styles/Home.module.css";
 
@@ -11,6 +13,17 @@ import styles from "../styles/Home.module.css";
 
 function Header() {
   const stateOfAdmin = useAdmin().state;
+  const stateOfUser = useUser().state;
+
+  let buttonIcon;
+
+  if (stateOfAdmin) {
+    buttonIcon = <AdminButton to={"/login"} toAdmin={"/admin"} />;
+  } else if (stateOfUser) {
+    buttonIcon = <UserLoggedButton to={"/login"} />;
+  } else {
+    buttonIcon = <UserButton to={"/login"} />;
+  }
 
   return (
     <nav className={styles.navbar}>
@@ -29,16 +42,17 @@ function Header() {
       <section className={styles.section}>
         <div className={styles.section_div}>
           <IconButton to={"/cart"} />
-          {/* <Button to={"/cart"} name={`Cart`} /> */}
-          {stateOfAdmin ? (
-            <AdminButton to={"/login"} toAdmin={"/admin"} />
-          ) : (
-            <UserButton to={"/login"} />
-          )}
+          {buttonIcon}
         </div>
       </section>
     </nav>
   );
 }
+
+// stateOfAdmin ? (
+//   <AdminButton to={"/login"} toAdmin={"/admin"} />
+// ) : (
+//   <UserButton to={"/login"} />
+// );
 
 export default Header;
