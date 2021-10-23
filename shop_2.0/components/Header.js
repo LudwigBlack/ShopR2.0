@@ -15,11 +15,14 @@ function Header() {
   const stateOfAdmin = useAdmin().state;
   const stateOfUser = useUser().state;
 
+  const { isLogged } = stateOfUser;
+  // console.log(stateOfUser);
+
   let buttonIcon;
 
   if (stateOfAdmin) {
     buttonIcon = <AdminButton to={"/login"} toAdmin={"/admin"} />;
-  } else if (stateOfUser) {
+  } else if (isLogged) {
     buttonIcon = <UserLoggedButton to={"/login"} />;
   } else {
     buttonIcon = <UserButton to={"/login"} />;

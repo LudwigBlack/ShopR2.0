@@ -17,11 +17,11 @@ function UserButton({ to, toAdmin, toLogout }) {
           />
         </a>
       </Link>
-      <div className={styles.dropdown_content}>
+      {/* <div className={styles.dropdown_content}>
         <Link href={to}>
           <a>Log out</a>
         </Link>
-      </div>
+      </div> */}
     </div>
   );
 }

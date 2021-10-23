@@ -77,6 +77,9 @@ const cartReducer = (state, action) => {
         ...filteredByKey,
       };
     }
+    case "DELETE_CART": {
+      return {};
+    }
     default:
       throw new Error("Something went wrong!");
   }

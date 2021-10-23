@@ -68,6 +68,15 @@ justify-content: flex-end;
   height: 50px;
 }
 
+.dropdown_user{
+  display: flex;
+  justify-content: center;
+}
+
+.dropdown_user_logout{
+  text-align: center;
+}
+
  /* Main page */
 
 .mainPage{

@@ -15,7 +15,10 @@ const userReducer = (state, action) => {
         ...action.payload,
       };
     case "UNLOGGED":
-      return (state = false);
+      return {
+        ...state,
+        ...action.payload,
+      };
 
     default:
       throw new Error("Something went wrong with userlogiin!");

@@ -1,5 +1,5 @@
 import Link from "next/link";
-
+import { useCart } from "../contexts/CartProvider";
 import { useUser } from "../contexts/UserProvider";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -8,6 +8,7 @@ import { faUserTie } from "@fortawesome/free-solid-svg-icons";
 import styles from "../styles/Home.module.css";
 
 function UserLoggedButton({ to }) {
+  const dispatchCart = useCart().dispatch;
   const dispatchIsLogged = useUser().dispatch;
   const stateOfUser = useUser().state;
 
@@ -16,7 +17,13 @@ function UserLoggedButton({ to }) {
   const { userName } = stateOfUser;
 
   function handleCLick() {
-    dispatchIsLogged({ type: "UNLOGGED" });
+    const payload = {
+      isLogged: false,
+      userName: userName,
+    };
+    dispatchCart({ type: "DELETE_CART" });
+    dispatchIsLogged({ type: "UNLOGGED", payload });
+    console.log("Dispach unlogged zrobiony");
   }
   return (
     <div className={styles.dropdown}>
@@ -30,12 +37,16 @@ function UserLoggedButton({ to }) {
         </a>
       </Link>
       <div className={styles.dropdown_content}>
-        <div>
+        <div className={styles.dropdown_user}>
           <p>{userName}</p>
         </div>
-        <Link href={to}>
-          <a onClick={handleCLick}>Log out</a>
-        </Link>
+        <div className={styles.dropdown_user}>
+          <Link href={to}>
+            <a onClick={handleCLick} className={styles.dropdown_user_logout}>
+              Log out
+            </a>
+          </Link>
+        </div>
       </div>
     </div>
   );
