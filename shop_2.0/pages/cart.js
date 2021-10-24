@@ -1,19 +1,13 @@
 import { CartProduct } from "../components/CartProduct";
+import { useState } from "react";
 import { useCart } from "../contexts/CartProvider";
+import FinalBuyPopup from "../components/FinalBuyPopup";
 
 import styles from "../styles/Home.module.css";
 
 const Cart = () => {
+  const [showModal, setShowModal] = useState(false);
   const cartState = useCart();
-  // const handleCLick = () => onClickHandler({ id, type: "ADD_PRODUCT" });
-
-  // const filteredState = new Set();
-
-  // const filteredArr = cartState.state.filter((el) => {
-  //   const duplicate = filteredState.has(el.id);
-  //   filteredState.add(el.id);
-  //   return !duplicate;
-  // });
 
   const allProducts = Object.entries(cartState.state);
 
@@ -28,7 +22,10 @@ const Cart = () => {
     0
   );
 
-  //console.log(totalValue);
+  function finalModal(productName) {
+    console.log("Play działa");
+    setShowModal(true);
+  }
 
   return (
     <div className={styles.cartPage}>
@@ -46,10 +43,16 @@ const Cart = () => {
         <div className={styles.total_value_wrapper}>
           <div>
             <p>Total Cart Value</p>
-            <p>{totalValue}</p>
+            <p>{totalValue} PLN</p>
+          </div>
+        </div>
+        <div className={styles.final_buy_wrapper}>
+          <div className={styles.final_buy_button_div}>
+            <button onClick={finalModal}>Złóż zamówienie</button>
           </div>
         </div>
       </main>
+      <FinalBuyPopup onClose={() => setShowModal(false)} show={showModal} />
     </div>
   );
 };

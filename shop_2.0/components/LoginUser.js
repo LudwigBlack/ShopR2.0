@@ -54,11 +54,9 @@ export const LoginUser = () => {
       dispatchUserLogged({ type: "LOGGED", payload });
       console.log("Weszło do dispacza");
       setShowModal(true);
-      // router.push("/snacks");
     } else {
       console.log(`Nie znaleziono userLogged: ${userLogged}`);
     }
-    // console.log(userLogged);
 
     if (userNameInput === "AdminJohn" && password === "admin") {
       const value = true;
