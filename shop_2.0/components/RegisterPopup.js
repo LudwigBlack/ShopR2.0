@@ -1,13 +1,16 @@
 import { useState, useEffect } from "react";
 import ReactDOM from "react-dom";
+import { useRouter } from "next/router";
 import styles from "../styles/Home.module.css";
 
-const RegisterPopup = ({ show, onClose, children, set }) => {
+const RegisterPopup = ({ show, onClose, children }) => {
   const [isBrowser, setIsBrowser] = useState(false);
+
+  const router = useRouter();
 
   // console.log(show);
 
-  set.setShot(false);
+  // set.setShot(false);
 
   useEffect(() => {
     setIsBrowser(true);
@@ -16,6 +19,7 @@ const RegisterPopup = ({ show, onClose, children, set }) => {
   const handleCloseClick = (e) => {
     e.preventDefault();
     onClose();
+    router.push("/login");
   };
 
   const modalContent = show ? (

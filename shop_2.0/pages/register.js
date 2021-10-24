@@ -55,8 +55,8 @@ const Register = () => {
   //const [person, setPerson] = useState(DEFAULT_PERSON);
   const [name, setName] = useLocalStorage("user", []);
   const [showModal, setShowModal] = useState(false);
-  const [shot, setShot] = useState(false);
-  const router = useRouter();
+  // const [shot, setShot] = useState(false);
+  // const router = useRouter();
 
   let item;
   let item2;
@@ -66,27 +66,15 @@ const Register = () => {
       item = 0;
     } else {
       item = 0;
-      //console.log(`window działa ${item}`)
     }
-    // item = JSON.parse(window.localStorage.getItem("user")).length;
-    //console.log(`window działa ${item}`);
   } else if (typeof window == "null") {
     item = 0;
   }
 
-  // useEffect(() => {
-  //   setShowModal(true);
-  //   //console.log(showModal);
-  // }, [item]);
-
-  function compare(a, b) {
-    if (a < b) {
-      setShowModal(true);
-      console.log(showModal);
-    }
+  function change() {
+    setShowModal(true);
+    console.log("Udało się");
   }
-
-  const bool = true;
 
   const formik = useFormik({
     initialValues: {
@@ -94,22 +82,11 @@ const Register = () => {
       userName: "",
       password: "",
       isLogged: "false",
-      newCreated: "true",
     },
 
     validate,
     onSubmit: (values) => {
-      // const bool = true;
-      // setShowModal(bool);
-      setName(name.concat(values));
-      //hot(newValue);
-      // console.log(showModal);
-
-      // console.log(showModal);
-      // router.push("/login");
-      // item2 = JSON.parse(window.localStorage.getItem("user")).length;
-      // console.log(item, item2);
-      // compare(item, item2);
+      change(), setName(name.concat(values));
     },
   });
 
@@ -132,7 +109,6 @@ const Register = () => {
             type="text"
             onChange={formik.handleChange}
             value={formik.values.userName}
-            // value={person.userName}
             name="userName"
           />
           {formik.errors.userName ? <div>{formik.errors.userName}</div> : null}{" "}
@@ -142,7 +118,6 @@ const Register = () => {
             onChange={formik.handleChange}
             value={formik.values.password}
             name="password"
-            // ref={register}
           />
           {formik.errors.password ? <div>{formik.errors.password}</div> : null}
           <button type="submit">Register</button>
@@ -155,7 +130,7 @@ const Register = () => {
         </form>
       </div>
 
-      {shot ? (
+      {showModal ? (
         <RegisterPopup onClose={() => setShowModal(false)} show={showModal} />
       ) : null}
     </div>
