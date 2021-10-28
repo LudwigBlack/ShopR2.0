@@ -5,23 +5,14 @@ import { faUser } from "@fortawesome/free-solid-svg-icons";
 
 import styles from "../styles/Home.module.css";
 
-function UserButton({ to, toAdmin, toLogout }) {
+function UserButton({ to }) {
   return (
     <div className={styles.dropdown}>
       <Link href={to}>
         <a className={styles.header_button}>
-          <FontAwesomeIcon
-            icon={faUser}
-            size="2x"
-            //   className={styles.header_cart_icon}
-          />
+          <FontAwesomeIcon icon={faUser} size="2x" />
         </a>
       </Link>
-      {/* <div className={styles.dropdown_content}>
-        <Link href={to}>
-          <a>Log out</a>
-        </Link>
-      </div> */}
     </div>
   );
 }

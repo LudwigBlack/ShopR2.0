@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState } from "react";
 import { Product } from "../components/Product";
 import { useProducts } from "../contexts/ProductsProvider";
 
@@ -9,7 +9,6 @@ const Drinks = () => {
   const [showModal, setShowModal] = useState(false);
   const [name, setName] = useState("");
   const drinksState = useProducts().drinks;
-  // const handleCLick = () => onClickHandler({ id, type: "ADD_PRODUCT" });
 
   function playmodal(productName) {
     console.log("Play działa");

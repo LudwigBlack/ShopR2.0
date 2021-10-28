@@ -17,11 +17,7 @@ function AdminButton({ to, toAdmin }) {
     <div className={styles.dropdown}>
       <Link href={to}>
         <a className={styles.header_button}>
-          <FontAwesomeIcon
-            icon={faUserCog}
-            size="2x"
-            //   className={styles.header_cart_icon}
-          />
+          <FontAwesomeIcon icon={faUserCog} size="2x" />
         </a>
       </Link>
       <div className={styles.dropdown_content}>

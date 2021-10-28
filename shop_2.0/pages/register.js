@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useRouter } from "next/router";
 import { useFormik } from "formik";
 import RegisterPopup from "../components/RegisterPopup";
@@ -52,14 +52,10 @@ const validate = (values) => {
 };
 
 const Register = () => {
-  //const [person, setPerson] = useState(DEFAULT_PERSON);
   const [name, setName] = useLocalStorage("user", []);
   const [showModal, setShowModal] = useState(false);
-  // const [shot, setShot] = useState(false);
-  // const router = useRouter();
 
   let item;
-  let item2;
 
   if (typeof window !== "undefined") {
     if (typeof window.localStorage.getItem("user") == "null") {
@@ -73,7 +69,6 @@ const Register = () => {
 
   function change() {
     setShowModal(true);
-    console.log("Udało się");
   }
 
   const formik = useFormik({
@@ -100,7 +95,6 @@ const Register = () => {
             type="text"
             onChange={formik.handleChange}
             value={formik.values.email}
-            // value={person.userEmailAddress}
             name="email"
           />
           {formik.errors.email ? <div>{formik.errors.email}</div> : null}{" "}

@@ -9,14 +9,11 @@ import { useUser } from "../contexts/UserProvider";
 
 import styles from "../styles/Home.module.css";
 
-// const element = <FontAwesomeIcon icon={faCoffee} />;
-
 function Header() {
   const stateOfAdmin = useAdmin().state;
   const stateOfUser = useUser().state;
 
   const { isLogged } = stateOfUser;
-  // console.log(stateOfUser);
 
   let buttonIcon;
 
@@ -51,11 +48,5 @@ function Header() {
     </nav>
   );
 }
-
-// stateOfAdmin ? (
-//   <AdminButton to={"/login"} toAdmin={"/admin"} />
-// ) : (
-//   <UserButton to={"/login"} />
-// );
 
 export default Header;

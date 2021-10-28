@@ -16,7 +16,8 @@ function UserLoggedButton({ to }) {
 
   const { userName } = stateOfUser;
 
-  function handleCLick() {
+  function handleCLick(e) {
+    e.preventDefault();
     const payload = {
       isLogged: false,
       userName: userName,
@@ -29,11 +30,7 @@ function UserLoggedButton({ to }) {
     <div className={styles.dropdown}>
       <Link href={to}>
         <a className={styles.header_button}>
-          <FontAwesomeIcon
-            icon={faUserTie}
-            size="2x"
-            //   className={styles.header_cart_icon}
-          />
+          <FontAwesomeIcon icon={faUserTie} size="2x" />
         </a>
       </Link>
       <div className={styles.dropdown_content}>

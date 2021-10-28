@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState } from "react";
 import ReactDOM from "react-dom";
 import styles from "../styles/Home.module.css";
 
@@ -18,7 +18,6 @@ const Popup = ({ show, onClose, children }) => {
             x
           </a>
         </div>
-        {/* {title && <StyledModalTitle>{title}</StyledModalTitle>} */}
         <p>Hello Admin!</p>
         <p>After you finish you work, please remember to logout.</p>
         <div className={styles.popup_body}>{children}</div>

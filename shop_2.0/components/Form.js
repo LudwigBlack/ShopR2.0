@@ -1,7 +1,5 @@
 import { useProducts } from "../contexts/ProductsProvider";
 
-import styles from "../styles/Home.module.css";
-
 export const Form = () => {
   const dispatchSnack = useProducts().dispatch;
   const stateSnack = useProducts().snacks;
@@ -18,12 +16,10 @@ export const Form = () => {
 
   function handleChangeName(e) {
     name = e.target.value;
-    console.log(name);
   }
 
   function handleChangePrice(e) {
     price = e.target.value;
-    console.log(price);
   }
 
   function handleSelect(e) {
@@ -31,7 +27,6 @@ export const Form = () => {
   }
 
   function handleSubmit(e) {
-    console.log(e);
     e.preventDefault();
     if (category === "Snacks") {
       const id = Math.max(...stateSnack.map((i) => i.id)) + 1;
@@ -72,5 +67,3 @@ export const Form = () => {
     </form>
   );
 };
-
-// export default Form;

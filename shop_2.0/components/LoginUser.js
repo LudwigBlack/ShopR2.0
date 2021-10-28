@@ -1,8 +1,6 @@
-import Link from "next/link";
-
 import { useAdmin } from "../contexts/AdminProvider";
-// import { useRouter } from "next/router";
-import { useState, useEffect } from "react";
+import { useRouter } from "next/router";
+import { useState } from "react";
 import { useUser } from "../contexts/UserProvider";
 import LoginUserModal from "../components/LoginUserPopUp";
 
@@ -11,12 +9,9 @@ import styles from "../styles/Home.module.css";
 export const LoginUser = () => {
   const [showModal, setShowModal] = useState(false);
 
-  // const [shot, setShot] = useState(false);
-
-  // const router = useRouter();
+  const router = useRouter();
 
   const dispatchIsLogged = useAdmin().dispatch;
-  const stateOfAdmin = useAdmin().state;
 
   const dispatchUserLogged = useUser().dispatch;
   const stateOfUser = useUser().state;
@@ -35,8 +30,6 @@ export const LoginUser = () => {
 
   function handleSubmit(e) {
     e.preventDefault();
-    // console.log(userName);
-    // console.log(password);
 
     const item = JSON.parse(window.localStorage.getItem("user"));
 
@@ -54,6 +47,7 @@ export const LoginUser = () => {
       dispatchUserLogged({ type: "LOGGED", payload });
       console.log("Weszło do dispacza");
       setShowModal(true);
+      return;
     } else {
       console.log(`Nie znaleziono userLogged: ${userLogged}`);
     }
@@ -62,8 +56,6 @@ export const LoginUser = () => {
       const value = true;
       dispatchIsLogged({ value, type: "LOGGED" });
       router.push("/admin");
-    } else {
-      console.log("coś nie działa w handleSubmit");
     }
   }
 
@@ -87,7 +79,6 @@ export const LoginUser = () => {
         onClose={() => setShowModal(false)}
         show={showModal}
         userLogged={userName}
-        // set={setShot(false)}
       />
     </>
   );

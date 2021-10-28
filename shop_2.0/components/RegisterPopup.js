@@ -8,10 +8,6 @@ const RegisterPopup = ({ show, onClose, children }) => {
 
   const router = useRouter();
 
-  // console.log(show);
-
-  // set.setShot(false);
-
   useEffect(() => {
     setIsBrowser(true);
   }, []);
@@ -30,7 +26,6 @@ const RegisterPopup = ({ show, onClose, children }) => {
             x
           </a>
         </div>
-        {/* {title && <StyledModalTitle>{title}</StyledModalTitle>} */}
         <p>Hello</p>
         <p>Your account has been created. You can can log in now.</p>
         <div className={styles.popup_body}>{children}</div>

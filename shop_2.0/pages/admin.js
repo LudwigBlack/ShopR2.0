@@ -6,7 +6,7 @@ import { Form } from "../components/Form";
 
 import Popup from "../components/AdminPopup";
 
-import { useState, useRef } from "react";
+import { useState } from "react";
 
 import styles from "../styles/Home.module.css";
 
@@ -45,8 +45,6 @@ const Admin = () => {
       {...product}
     />
   ));
-
-  // useEffect(() => )
 
   return (
     <>

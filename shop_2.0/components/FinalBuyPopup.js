@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from "react";
+import { useState, useEffect } from "react";
 import ReactDOM from "react-dom";
 
 import { useCart } from "../contexts/CartProvider";
@@ -29,7 +29,6 @@ const FinalBuyPopup = ({ show, onClose }) => {
             x
           </a>
         </div>
-        {/* {title && <StyledModalTitle>{title}</StyledModalTitle>} */}
         <p>Dziękujemy za złożenie zamówienia w naszym sklepie!</p>
         <p>Czas oczekiwania na przesyłkę wynosi: Nie wiadomo.</p>
         <p>Zapraszamy na kolejne zakupy!</p>

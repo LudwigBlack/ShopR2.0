@@ -1,12 +1,6 @@
-// import { useSnacks } from "../contexts/SnacksProvider";
-// import { useDrinks } from "../contexts/DrinksProvider";
-// import { useSpirits } from "../contexts/SpiritsProvider";
-
 import styles from "../styles/Home.module.css";
 
 export const AdminProduct = ({ id, dispatch, name, price }) => {
-  //const { dispatch } = useSnacks();
-
   const handleCLick = () => {
     console.log(id);
     dispatch({ id, type: "DELETE_PRODUCT" });

@@ -32,9 +32,6 @@ const cartReducer = (state, action) => {
       }
     }
     case "ADD_QUANTITY": {
-      console.log("dziala");
-      //const key = action.id + action.category;
-
       const key = action.product;
       console.log(key);
       if (state[key]) {
@@ -48,9 +45,6 @@ const cartReducer = (state, action) => {
       }
     }
     case "SUBSTRACT_QUANTITY": {
-      console.log("dziala");
-      //const key = action.id + action.category;
-
       const key = action.product;
       console.log(key);
       if (state[key]) {
@@ -69,9 +63,8 @@ const cartReducer = (state, action) => {
     }
     case "DELETE_PRODUCT": {
       const key = action.product;
-      //console.log(key);
       const filteredByKey = Object.fromEntries(
-        Object.entries(state).filter(([name, value]) => name !== key)
+        Object.entries(state).filter(([name]) => name !== key)
       );
       return {
         ...filteredByKey,

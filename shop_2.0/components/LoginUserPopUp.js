@@ -6,9 +6,6 @@ import styles from "../styles/Home.module.css";
 const LoginUserModal = ({ show, onClose, userLogged, children }) => {
   const [isBrowser, setIsBrowser] = useState(false);
 
-  // console.log(show);
-
-  // set.setShot(false);
   const router = useRouter();
 
   useEffect(() => {
@@ -29,7 +26,6 @@ const LoginUserModal = ({ show, onClose, userLogged, children }) => {
             x
           </a>
         </div>
-        {/* {title && <StyledModalTitle>{title}</StyledModalTitle>} */}
         <p>{`Hello ${userLogged}`}</p>
         <p>You logged in. You can now buy products</p>
         <div className={styles.popup_body}>{children}</div>

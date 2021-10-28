@@ -1,11 +1,7 @@
-import { useState, useRef } from "react";
+import { useState } from "react";
 import { Product } from "../components/Product";
-
 import { useProducts } from "../contexts/ProductsProvider";
-import { useUser } from "../contexts/UserProvider";
 import BuyPopup from "../components/BuyProductPopup";
-
-import LoginUserPopup from "../components/LoginUserPopUp";
 
 import styles from "../styles/Home.module.css";
 
@@ -13,14 +9,9 @@ const Snacks = () => {
   const [showModal, setShowModal] = useState(false);
   const [name, setName] = useState("");
 
-  const [showUserModal, setUserShowModal] = useState(false);
-  const userLoggedState = useUser().snacks;
-
   const snacksState = useProducts().snacks;
-  // const handleCLick = () => onClickHandler({ id, type: "ADD_PRODUCT" });
 
   function playmodal(productName) {
-    console.log("Play działa");
     setShowModal(true);
     setName(productName);
   }

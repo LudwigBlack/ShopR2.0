@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from "react";
+import { useState, useEffect } from "react";
 import ReactDOM from "react-dom";
 import styles from "../styles/Home.module.css";
 
@@ -22,7 +22,6 @@ const BuyPopup = ({ show, onClose, children, prod }) => {
             x
           </a>
         </div>
-        {/* {title && <StyledModalTitle>{title}</StyledModalTitle>} */}
         <p>{`Dodałeś produkt ${prod} do koszyka!`}</p>
         <p></p>
         <div className={styles.popup_body}>{children}</div>

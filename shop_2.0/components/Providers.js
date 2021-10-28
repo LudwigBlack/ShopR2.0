@@ -1,4 +1,3 @@
-//import SnacksProvider from "../contexts/SnacksProvider";
 import CartProvider from "../contexts/CartProvider";
 import ProductsProvider from "../contexts/ProductsProvider";
 import AdminProvider from "../contexts/AdminProvider";

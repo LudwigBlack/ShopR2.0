@@ -22,8 +22,7 @@ const Cart = () => {
     0
   );
 
-  function finalModal(productName) {
-    console.log("Play działa");
+  function finalModal() {
     setShowModal(true);
   }
 
