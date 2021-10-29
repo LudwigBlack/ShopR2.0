@@ -3,7 +3,7 @@ import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser } from "@fortawesome/free-solid-svg-icons";
 
-import styles from "../styles/Home.module.css";
+import styles from "../../styles/Home.module.css";
 
 function UserButton({ to }) {
   return (

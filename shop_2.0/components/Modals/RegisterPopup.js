@@ -1,13 +1,21 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import ReactDOM from "react-dom";
-import styles from "../styles/Home.module.css";
+import { useRouter } from "next/router";
+import styles from "../../styles/Home.module.css";
 
-const Popup = ({ show, onClose, children }) => {
-  const [isBrowser, setIsBrowser] = useState(true);
+const RegisterPopup = ({ show, onClose, children }) => {
+  const [isBrowser, setIsBrowser] = useState(false);
+
+  const router = useRouter();
+
+  useEffect(() => {
+    setIsBrowser(true);
+  }, []);
 
   const handleCloseClick = (e) => {
     e.preventDefault();
     onClose();
+    router.push("/login");
   };
 
   const modalContent = show ? (
@@ -18,8 +26,8 @@ const Popup = ({ show, onClose, children }) => {
             x
           </a>
         </div>
-        <p>Hello Admin!</p>
-        <p>After you finish you work, please remember to logout.</p>
+        <p>Hello</p>
+        <p>Your account has been created. You can can log in now.</p>
         <div className={styles.popup_body}>{children}</div>
         <button onClick={handleCloseClick}>OK</button>
       </div>
@@ -36,4 +44,4 @@ const Popup = ({ show, onClose, children }) => {
   }
 };
 
-export default Popup;
+export default RegisterPopup;

@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
 import ReactDOM from "react-dom";
 import { useRouter } from "next/router";
-import styles from "../styles/Home.module.css";
+import styles from "../../styles/Home.module.css";
 
-const RegisterPopup = ({ show, onClose, children }) => {
+const LoginUserModal = ({ show, onClose, userLogged, children }) => {
   const [isBrowser, setIsBrowser] = useState(false);
 
   const router = useRouter();
@@ -15,7 +15,7 @@ const RegisterPopup = ({ show, onClose, children }) => {
   const handleCloseClick = (e) => {
     e.preventDefault();
     onClose();
-    router.push("/login");
+    router.push("/snacks");
   };
 
   const modalContent = show ? (
@@ -26,8 +26,8 @@ const RegisterPopup = ({ show, onClose, children }) => {
             x
           </a>
         </div>
-        <p>Hello</p>
-        <p>Your account has been created. You can can log in now.</p>
+        <p>{`Hello ${userLogged}`}</p>
+        <p>You logged in. You can now buy products</p>
         <div className={styles.popup_body}>{children}</div>
         <button onClick={handleCloseClick}>OK</button>
       </div>
@@ -44,4 +44,4 @@ const RegisterPopup = ({ show, onClose, children }) => {
   }
 };
 
-export default RegisterPopup;
+export default LoginUserModal;

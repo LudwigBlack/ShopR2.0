@@ -1,8 +1,8 @@
-import Button from "./Button";
-import IconButton from "./IconButton";
-import UserButton from "./LoginButton";
-import AdminButton from "./AdminButton";
-import UserLoggedButton from "./UserButon";
+import Button from "./Buttons/Button";
+import IconButton from "./Buttons/IconButton";
+import UserButton from "./Buttons/LoginButton";
+import AdminButton from "./Buttons/AdminButton";
+import UserLoggedButton from "./Buttons/UserButon";
 
 import { useAdmin } from "../contexts/AdminProvider";
 import { useUser } from "../contexts/UserProvider";

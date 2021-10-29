@@ -1,7 +1,7 @@
 import { CartProduct } from "../components/CartProduct";
 import { useState } from "react";
 import { useCart } from "../contexts/CartProvider";
-import FinalBuyPopup from "../components/FinalBuyPopup";
+import FinalBuyPopup from "../components/Modals/FinalBuyPopup";
 
 import styles from "../styles/Home.module.css";
 

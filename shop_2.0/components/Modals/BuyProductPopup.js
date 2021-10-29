@@ -1,13 +1,9 @@
 import { useState, useEffect } from "react";
 import ReactDOM from "react-dom";
+import styles from "../../styles/Home.module.css";
 
-import { useCart } from "../contexts/CartProvider";
-import styles from "../styles/Home.module.css";
-
-const FinalBuyPopup = ({ show, onClose }) => {
+const BuyPopup = ({ show, onClose, children, prod }) => {
   const [isBrowser, setIsBrowser] = useState(false);
-
-  const dispatchCart = useCart().dispatch;
 
   useEffect(() => {
     setIsBrowser(true);
@@ -15,9 +11,6 @@ const FinalBuyPopup = ({ show, onClose }) => {
 
   const handleCloseClick = (e) => {
     e.preventDefault();
-
-    dispatchCart({ type: "DELETE_CART" });
-    console.log("Dispach unlogged zrobiony");
     onClose();
   };
 
@@ -29,9 +22,9 @@ const FinalBuyPopup = ({ show, onClose }) => {
             x
           </a>
         </div>
-        <p>Dziękujemy za złożenie zamówienia w naszym sklepie!</p>
-        <p>Czas oczekiwania na przesyłkę wynosi: Nie wiadomo.</p>
-        <p>Zapraszamy na kolejne zakupy!</p>
+        <p>{`Dodałeś produkt ${prod} do koszyka!`}</p>
+        <p></p>
+        <div className={styles.popup_body}>{children}</div>
         <button onClick={handleCloseClick}>OK</button>
       </div>
     </div>
@@ -47,4 +40,4 @@ const FinalBuyPopup = ({ show, onClose }) => {
   }
 };
 
-export default FinalBuyPopup;
+export default BuyPopup;

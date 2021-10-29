@@ -4,7 +4,7 @@ import { useProducts } from "../contexts/ProductsProvider";
 
 import { Form } from "../components/Form";
 
-import Popup from "../components/AdminPopup";
+import Popup from "../components/Modals/AdminPopup";
 
 import { useState } from "react";
 

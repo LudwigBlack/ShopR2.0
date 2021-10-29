@@ -2,7 +2,6 @@ import styles from "../styles/Home.module.css";
 
 export const AdminProduct = ({ id, dispatch, name, price }) => {
   const handleCLick = () => {
-    console.log(id);
     dispatch({ id, type: "DELETE_PRODUCT" });
   };
   return (

@@ -1,11 +1,11 @@
 import Link from "next/link";
 
-import { useAdmin } from "../contexts/AdminProvider";
+import { useAdmin } from "../../contexts/AdminProvider";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUserCog } from "@fortawesome/free-solid-svg-icons";
 
-import styles from "../styles/Home.module.css";
+import styles from "../../styles/Home.module.css";
 
 function AdminButton({ to, toAdmin }) {
   const dispatchIsLogged = useAdmin().dispatch;

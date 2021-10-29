@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Product } from "../components/Product";
 import { useProducts } from "../contexts/ProductsProvider";
 
-import BuyPopup from "../components/BuyProductPopup";
+import BuyPopup from "../components/Modals/BuyProductPopup";
 import styles from "../styles/Home.module.css";
 
 const Drinks = () => {

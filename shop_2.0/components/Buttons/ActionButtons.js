@@ -1,5 +1,5 @@
-import { useCart } from "../contexts/CartProvider";
-import styles from "../styles/Home.module.css";
+import { useCart } from "../../contexts/CartProvider";
+import styles from "../../styles/Home.module.css";
 
 function ActionButtons({ product }) {
   const { dispatch } = useCart();

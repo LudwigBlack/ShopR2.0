@@ -1,13 +1,9 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import ReactDOM from "react-dom";
-import styles from "../styles/Home.module.css";
+import styles from "../../styles/Home.module.css";
 
-const BuyPopup = ({ show, onClose, children, prod }) => {
-  const [isBrowser, setIsBrowser] = useState(false);
-
-  useEffect(() => {
-    setIsBrowser(true);
-  }, []);
+const Popup = ({ show, onClose, children }) => {
+  const [isBrowser, setIsBrowser] = useState(true);
 
   const handleCloseClick = (e) => {
     e.preventDefault();
@@ -22,8 +18,8 @@ const BuyPopup = ({ show, onClose, children, prod }) => {
             x
           </a>
         </div>
-        <p>{`Dodałeś produkt ${prod} do koszyka!`}</p>
-        <p></p>
+        <p>Hello Admin!</p>
+        <p>After you finish you work, please remember to logout.</p>
         <div className={styles.popup_body}>{children}</div>
         <button onClick={handleCloseClick}>OK</button>
       </div>
@@ -40,4 +36,4 @@ const BuyPopup = ({ show, onClose, children, prod }) => {
   }
 };
 
-export default BuyPopup;
+export default Popup;

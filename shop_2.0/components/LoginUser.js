@@ -2,7 +2,7 @@ import { useAdmin } from "../contexts/AdminProvider";
 import { useRouter } from "next/router";
 import { useState } from "react";
 import { useUser } from "../contexts/UserProvider";
-import LoginUserModal from "../components/LoginUserPopUp";
+import LoginUserModal from "../components/Modals/LoginUserPopUp";
 
 import styles from "../styles/Home.module.css";
 

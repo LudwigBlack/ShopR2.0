@@ -1,4 +1,4 @@
-import ActionButtons from "./ActionButtons";
+import ActionButtons from "./Buttons/ActionButtons";
 
 import styles from "../styles/Home.module.css";
 

@@ -1,11 +1,11 @@
 import Link from "next/link";
-import { useCart } from "../contexts/CartProvider";
-import { useUser } from "../contexts/UserProvider";
+import { useCart } from "../../contexts/CartProvider";
+import { useUser } from "../../contexts/UserProvider";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUserTie } from "@fortawesome/free-solid-svg-icons";
 
-import styles from "../styles/Home.module.css";
+import styles from "../../styles/Home.module.css";
 
 function UserLoggedButton({ to }) {
   const dispatchCart = useCart().dispatch;
