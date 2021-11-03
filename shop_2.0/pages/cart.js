@@ -11,8 +11,6 @@ const Cart = () => {
 
   const allProducts = Object.entries(cartState.state);
 
-  console.log(allProducts);
-
   const newProducts = allProducts.map((product) => (
     <CartProduct key={product[0]} {...product[1]} />
   ));

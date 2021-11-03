@@ -10,12 +10,10 @@ const Spirits = () => {
   const [name, setName] = useState("");
 
   const spiritsState = useProducts().spirits;
-  // const handleCLick = () => onClickHandler({ id, type: "ADD_PRODUCT" });
-  function playmodal(productName) {
-    console.log("Play działa");
+  const playmodal = (productName) => {
     setShowModal(true);
     setName(productName);
-  }
+  };
 
   const allProducts = spiritsState.map((product) => (
     <Product

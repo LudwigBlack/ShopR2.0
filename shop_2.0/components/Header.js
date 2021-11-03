@@ -15,14 +15,14 @@ function Header() {
 
   const { isLogged } = stateOfUser;
 
-  let buttonIcon;
-
-  if (stateOfAdmin) {
-    buttonIcon = <AdminButton to={"/login"} toAdmin={"/admin"} />;
-  } else if (isLogged) {
-    buttonIcon = <UserLoggedButton to={"/login"} />;
-  } else {
-    buttonIcon = <UserButton to={"/login"} />;
+  function whatIcon() {
+    if (stateOfAdmin) {
+      return <AdminButton to={"/login"} toAdmin={"/admin"} />;
+    } else if (isLogged) {
+      return <UserLoggedButton to={"/login"} />;
+    } else {
+      return <UserButton to={"/login"} />;
+    }
   }
 
   return (
@@ -42,7 +42,7 @@ function Header() {
       <section className={styles.section}>
         <div className={styles.section_div}>
           <IconButton to={"/cart"} />
-          {buttonIcon}
+          {whatIcon()}
         </div>
       </section>
     </nav>

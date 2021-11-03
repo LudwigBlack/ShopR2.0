@@ -1,7 +1,5 @@
 import { AdminProduct } from "../components/AdminProduct";
-
 import { useProducts } from "../contexts/ProductsProvider";
-
 import { Form } from "../components/Form";
 
 import Popup from "../components/Modals/AdminPopup";
@@ -21,6 +19,16 @@ const Admin = () => {
 
   const spiritsState = useProducts().spirits;
   const dispatchSpirits = useProducts().dispatch;
+
+  const ProductsWrapper = ({ items }) => {
+    return (
+      <div className={styles.admin_products_wrapper}>
+        <div className={styles.snacksPage_wrapper}>
+          <div>{items}</div>
+        </div>
+      </div>
+    );
+  };
 
   const snacksProducts = snacksState.map((product) => (
     <AdminProduct
@@ -49,21 +57,9 @@ const Admin = () => {
   return (
     <>
       <div className={styles.adminPage}>
-        <div className={styles.admin_products_wrapper}>
-          <div className={styles.snacksPage_wrapper}>
-            <div>{snacksProducts}</div>
-          </div>
-        </div>
-        <div className={styles.admin_products_wrapper}>
-          <div className={styles.snacksPage_wrapper}>
-            <div>{drinksProducts}</div>
-          </div>
-        </div>
-        <div className={styles.admin_products_wrapper}>
-          <div className={styles.snacksPage_wrapper}>
-            <div>{spiritsProducts}</div>
-          </div>
-        </div>
+        <ProductsWrapper items={snacksProducts} />
+        <ProductsWrapper items={drinksProducts} />
+        <ProductsWrapper items={spiritsProducts} />
         <div className={styles.snacksPage}>
           <div className={styles.admin_form}>
             <Form />
