@@ -2,13 +2,13 @@ import { useFormik } from "formik";
 import { useProducts } from "../contexts/ProductsProvider";
 
 export const Form = () => {
-  const dispatchSnack = useProducts().dispatch;
+  const dispatchSnacks = useProducts().dispatch;
   const stateSnack = useProducts().snacks;
 
-  const dispatchDrink = useProducts().dispatch;
+  const dispatchDrinks = useProducts().dispatch;
   const stateDrink = useProducts().drinks;
 
-  const dispatchSpirit = useProducts().dispatch;
+  const dispatchSpirits = useProducts().dispatch;
   const stateSpirit = useProducts().spirits;
 
   const formik = useFormik({
@@ -23,27 +23,32 @@ export const Form = () => {
     },
   });
 
-  // const whichProduct = (name, price, category) => {
-  //   const id = Math.max(...stateSnack.map((i) => i.id)) + 1;
-  //   dispatchSnack({ id, category, name, price, type: "ADD_PRODUCT" });
-  // }
+  // const handleSubmit = (values) => {
+  //   // e.preventDefault();
+  //   console.log(values);
+  //   const { name, price, category } = values;
+  //   if (category === "Snacks") {
+  //     const id = Math.max(...stateSnack.map((i) => i.id)) + 1;
+  //     dispatchSnack({ id, category, name, price, type: "ADD_PRODUCT" });
+  //   } else if (category === "Drinks") {
+  //     const id = Math.max(...stateDrink.map((i) => i.id)) + 1;
+  //     dispatchDrink({ id, category, name, price, type: "ADD_PRODUCT" });
+  //   } else if (category === "Spirits") {
+  //     const id = Math.max(...stateSpirit.map((i) => i.id)) + 1;
+  //     dispatchSpirit({ id, category, name, price, type: "ADD_PRODUCT" });
+  //   } else {
+  //     console.log("coś nie działa");
+  //   }
 
   const handleSubmit = (values) => {
     // e.preventDefault();
-    console.log(values);
+    // console.log(values);
     const { name, price, category } = values;
-    if (category === "Snacks") {
-      const id = Math.max(...stateSnack.map((i) => i.id)) + 1;
-      dispatchSnack({ id, category, name, price, type: "ADD_PRODUCT" });
-    } else if (category === "Drinks") {
-      const id = Math.max(...stateDrink.map((i) => i.id)) + 1;
-      dispatchDrink({ id, category, name, price, type: "ADD_PRODUCT" });
-    } else if (category === "Spirits") {
-      const id = Math.max(...stateSpirit.map((i) => i.id)) + 1;
-      dispatchSpirit({ id, category, name, price, type: "ADD_PRODUCT" });
-    } else {
-      console.log("coś nie działa");
-    }
+
+    const cat = `state${category}`;
+    console.log(cat);
+    const id = Math.max(...cat.map((i) => i.id)) + 1;
+    //   dispatch({ id, category, name, price, type: "ADD_PRODUCT" });
   };
   return (
     <form onSubmit={formik.handleSubmit}>

@@ -23,7 +23,7 @@ function UserLoggedButton({ to }) {
       userName: userName,
     };
     dispatchCart({ type: "DELETE_CART" });
-    dispatchIsLogged({ type: "UNLOGGED", payload });
+    dispatchIsLogged({ type: "LOGGED_UNLOGGED", payload });
     console.log("Dispach unlogged zrobiony");
   }
   return (

@@ -1,6 +1,6 @@
 import { useReducer, createContext, useContext } from "react";
 
-let userLoggedData = {
+const userLoggedData = {
   isLogged: false,
   userName: "",
 };
@@ -9,17 +9,11 @@ const UserContext = createContext();
 
 const userReducer = (state, action) => {
   switch (action.type) {
-    case "LOGGED":
+    case "LOGGED_UNLOGGED":
       return {
         ...state,
         ...action.payload,
       };
-    case "UNLOGGED":
-      return {
-        ...state,
-        ...action.payload,
-      };
-
     default:
       throw new Error("Something went wrong with userlogiin!");
   }

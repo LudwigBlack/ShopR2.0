@@ -6,22 +6,10 @@ const CartContext = createContext();
 
 const cartReducer = (state, action) => {
   switch (action.type) {
-    case "SHOW_SNACKS":
-      return state;
     case "ADD_PRODUCT": {
       const key = action.id + action.category;
-      if (!state[key]) {
-        return {
-          ...state,
-          [key]: {
-            id: action.id,
-            category: action.category,
-            name: action.name,
-            price: action.price,
-            quantity: 1,
-          },
-        };
-      } else {
+
+      if (state[key]) {
         return {
           ...state,
           [key]: {
@@ -30,6 +18,16 @@ const cartReducer = (state, action) => {
           },
         };
       }
+      return {
+        ...state,
+        [key]: {
+          id: action.id,
+          category: action.category,
+          name: action.name,
+          price: action.price,
+          quantity: 1,
+        },
+      };
     }
     case "ADD_QUANTITY": {
       const key = action.product;
@@ -56,9 +54,8 @@ const cartReducer = (state, action) => {
               quantity: state[key].quantity - 1,
             },
           };
-        } else {
-          return state;
         }
+        return state;
       }
     }
     case "DELETE_PRODUCT": {
