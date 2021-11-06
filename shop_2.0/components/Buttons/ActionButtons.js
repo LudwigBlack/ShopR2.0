@@ -1,7 +1,7 @@
 import { useCart } from "../../contexts/CartProvider";
 import styles from "../../styles/Home.module.css";
 
-function ActionButtons({ product }) {
+const ActionButtons = ({ product }) => {
   const { dispatch } = useCart();
 
   const handleAddOne = () => {
@@ -23,6 +23,6 @@ function ActionButtons({ product }) {
       <button onClick={handleDelete}>Delete</button>
     </div>
   );
-}
+};
 
 export default ActionButtons;

@@ -7,12 +7,12 @@ import { faUserCog } from "@fortawesome/free-solid-svg-icons";
 
 import styles from "../../styles/Home.module.css";
 
-function AdminButton({ to, toAdmin }) {
+const AdminButton = ({ to, toAdmin }) => {
   const dispatchIsLogged = useAdmin().dispatch;
 
-  function handleCLick() {
+  const handleCLick = () => {
     dispatchIsLogged({ type: "UNLOGGED" });
-  }
+  };
   return (
     <div className={styles.dropdown}>
       <Link href={to}>
@@ -30,5 +30,5 @@ function AdminButton({ to, toAdmin }) {
       </div>
     </div>
   );
-}
+};
 export default AdminButton;

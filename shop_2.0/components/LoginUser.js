@@ -39,11 +39,10 @@ export const LoginUser = () => {
           userName: userName,
         };
         dispatchUserLogged({ type: "LOGGED_UNLOGGED", payload });
-        console.log("Weszło do dispacza");
         setShowModal(true);
         return;
       } else {
-        console.log(`Nie znaleziono userLogged: ${userLogged}`);
+        console.log(`Didn't find userLogged: ${userLogged}`);
       }
 
       if (userNameInput === "AdminJohn" && password === "admin") {

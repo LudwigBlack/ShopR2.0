@@ -9,13 +9,13 @@ import { useUser } from "../contexts/UserProvider";
 
 import styles from "../styles/Home.module.css";
 
-function Header() {
+const Header = () => {
   const stateOfAdmin = useAdmin().state;
   const stateOfUser = useUser().state;
 
   const { isLogged } = stateOfUser;
 
-  function whatIcon() {
+  const whatIcon = () => {
     if (stateOfAdmin) {
       return <AdminButton to={"/login"} toAdmin={"/admin"} />;
     } else if (isLogged) {
@@ -23,7 +23,7 @@ function Header() {
     } else {
       return <UserButton to={"/login"} />;
     }
-  }
+  };
 
   return (
     <nav className={styles.navbar}>
@@ -47,6 +47,6 @@ function Header() {
       </section>
     </nav>
   );
-}
+};
 
 export default Header;

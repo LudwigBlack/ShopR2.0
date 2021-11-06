@@ -7,16 +7,14 @@ import { faUserTie } from "@fortawesome/free-solid-svg-icons";
 
 import styles from "../../styles/Home.module.css";
 
-function UserLoggedButton({ to }) {
+const UserLoggedButton = ({ to }) => {
   const dispatchCart = useCart().dispatch;
   const dispatchIsLogged = useUser().dispatch;
   const stateOfUser = useUser().state;
 
-  console.log(stateOfUser);
-
   const { userName } = stateOfUser;
 
-  function handleCLick(e) {
+  const handleCLick = (e) => {
     e.preventDefault();
     const payload = {
       isLogged: false,
@@ -24,8 +22,7 @@ function UserLoggedButton({ to }) {
     };
     dispatchCart({ type: "DELETE_CART" });
     dispatchIsLogged({ type: "LOGGED_UNLOGGED", payload });
-    console.log("Dispach unlogged zrobiony");
-  }
+  };
   return (
     <div className={styles.dropdown}>
       <Link href={to}>
@@ -47,5 +44,5 @@ function UserLoggedButton({ to }) {
       </div>
     </div>
   );
-}
+};
 export default UserLoggedButton;

@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { useState } from "react";
-
 import { useFormik } from "formik";
 import RegisterInput from "../components/InputFromRegister";
 import RegisterPopup from "../components/Modals/RegisterPopup";

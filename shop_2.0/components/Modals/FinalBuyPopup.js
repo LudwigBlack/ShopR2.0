@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import ReactDOM from "react-dom";
-
 import { useCart } from "../../contexts/CartProvider";
 import styles from "../../styles/Home.module.css";
 
@@ -17,7 +16,6 @@ const FinalBuyPopup = ({ show, onClose }) => {
     e.preventDefault();
 
     dispatchCart({ type: "DELETE_CART" });
-    console.log("Dispach unlogged zrobiony");
     onClose();
   };
 
