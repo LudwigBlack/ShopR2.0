@@ -20,46 +20,33 @@ const Admin = () => {
   const spiritsState = useProducts().spirits;
   const dispatchSpirits = useProducts().dispatch;
 
-  const ProductsWrapper = ({ items }) => {
+  const ProductsWrapper = ({ items, dispatchProduct }) => {
+    const renderedProducts = items.map((product) => (
+      <AdminProduct
+        key={product.id + product.category}
+        dispatch={dispatchProduct}
+        {...product}
+      />
+    ));
+    console.log(renderedProducts);
     return (
       <div className={styles.admin_products_wrapper}>
         <div className={styles.snacksPage_wrapper}>
-          <div>{items}</div>
+          <div>{renderedProducts}</div>
         </div>
       </div>
     );
   };
 
-  const snacksProducts = snacksState.map((product) => (
-    <AdminProduct
-      key={product.id + product.category}
-      dispatch={dispatchSnacks}
-      {...product}
-    />
-  ));
-
-  const drinksProducts = drinksState.map((product) => (
-    <AdminProduct
-      key={product.id + product.category}
-      dispatch={dispatchDrinks}
-      {...product}
-    />
-  ));
-
-  const spiritsProducts = spiritsState.map((product) => (
-    <AdminProduct
-      key={product.id + product.category}
-      dispatch={dispatchSpirits}
-      {...product}
-    />
-  ));
-
   return (
     <>
       <div className={styles.adminPage}>
-        <ProductsWrapper items={snacksProducts} />
-        <ProductsWrapper items={drinksProducts} />
-        <ProductsWrapper items={spiritsProducts} />
+        <ProductsWrapper items={snacksState} dispatchProduct={dispatchSnacks} />
+        <ProductsWrapper items={drinksState} dispatchProduct={dispatchDrinks} />
+        <ProductsWrapper
+          items={spiritsState}
+          dispatchProduct={dispatchSpirits}
+        />
         <div className={styles.snacksPage}>
           <div className={styles.admin_form}>
             <Form />
