@@ -1,9 +1,7 @@
 import { AdminProduct } from "../components/AdminProduct";
 import { useProducts } from "../contexts/ProductsProvider";
 import { Form } from "../components/Form";
-
 import Popup from "../components/Modals/AdminPopup";
-
 import { useState } from "react";
 
 import styles from "../styles/Home.module.css";
