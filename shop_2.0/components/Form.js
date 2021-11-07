@@ -45,10 +45,8 @@ export const Form = () => {
     // console.log(values);
     const { name, price, category } = values;
 
-    const cat = `state${category}`;
-    console.log(cat);
-    const id = Math.max(...cat.map((i) => i.id)) + 1;
-    //   dispatch({ id, category, name, price, type: "ADD_PRODUCT" });
+    const id = Math.max(category.map((i) => i.id)) + 1;
+    dispatch({ id, category, name, price, type: "ADD_PRODUCT" });
   };
   return (
     <form onSubmit={formik.handleSubmit}>
