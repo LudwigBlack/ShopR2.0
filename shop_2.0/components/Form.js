@@ -23,30 +23,29 @@ export const Form = () => {
     },
   });
 
-  // const handleSubmit = (values) => {
-  //   // e.preventDefault();
-  //   console.log(values);
-  //   const { name, price, category } = values;
-  //   if (category === "Snacks") {
-  //     const id = Math.max(...stateSnack.map((i) => i.id)) + 1;
-  //     dispatchSnack({ id, category, name, price, type: "ADD_PRODUCT" });
-  //   } else if (category === "Drinks") {
-  //     const id = Math.max(...stateDrink.map((i) => i.id)) + 1;
-  //     dispatchDrink({ id, category, name, price, type: "ADD_PRODUCT" });
-  //   } else if (category === "Spirits") {
-  //     const id = Math.max(...stateSpirit.map((i) => i.id)) + 1;
-  //     dispatchSpirit({ id, category, name, price, type: "ADD_PRODUCT" });
-  //   } else {
-  //     console.log("coś nie działa");
-  //   }
+  const dispachCategory = {
+    Snacks: dispatchSnacks,
+    Drinks: dispatchDrinks,
+    Spirits: dispatchSpirits,
+  };
+
+  const stateToMap = {
+    Snacks: stateSnack,
+    Drinks: stateDrink,
+    Spirits: stateSpirit,
+  };
 
   const handleSubmit = (values) => {
-    // e.preventDefault();
-    // console.log(values);
     const { name, price, category } = values;
+    const id = Math.max(...stateToMap[category].map((i) => i.id)) + 1;
 
-    const id = Math.max(category.map((i) => i.id)) + 1;
-    dispatch({ id, category, name, price, type: "ADD_PRODUCT" });
+    dispachCategory[category]({
+      id,
+      category,
+      name,
+      price,
+      type: "ADD_PRODUCT",
+    });
   };
   return (
     <form onSubmit={formik.handleSubmit}>
