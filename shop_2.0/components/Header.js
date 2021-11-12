@@ -3,6 +3,7 @@ import IconButton from "./Buttons/IconButton";
 import UserButton from "./Buttons/LoginButton";
 import AdminButton from "./Buttons/AdminButton";
 import UserLoggedButton from "./Buttons/UserButon";
+import Link from "next/link";
 
 import { useAdmin } from "../contexts/AdminProvider";
 import { useUser } from "../contexts/UserProvider";
@@ -28,9 +29,11 @@ const Header = () => {
   return (
     <nav className={styles.navbar}>
       <header className={styles.header}>
-        <div className={styles.logo_wrapper}>
-          <img src="\Frame 1.png" />
-        </div>
+        <Link href="/">
+          <div className={styles.logo_wrapper}>
+            <img src="\Frame 1.png" />
+          </div>
+        </Link>
         <div className={styles.header_buttons_wrapper}>
           <Button to={"/snacks"} name={`Snacks`} />
 

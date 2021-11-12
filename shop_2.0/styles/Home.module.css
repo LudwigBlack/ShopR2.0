@@ -23,7 +23,8 @@
 }
 
 .logo_wrapper{
-  margin-right: 80px;;
+  margin-right: 80px;
+  cursor: pointer;
 }
 
 
@@ -80,7 +81,7 @@ justify-content: flex-end;
   flex-direction: column;
   justify-content: space-around;
   width: 1200px;
-  height: 800px;
+  height: 600px;
 }
 
 .welcome_wrapper{
@@ -185,6 +186,7 @@ justify-content: flex-end;
 .cartPage{
   display: flex;
   justify-content: center;
+  height: 600px;
   margin: 20px;
 }
 

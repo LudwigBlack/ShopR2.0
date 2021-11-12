@@ -41,6 +41,7 @@ const cartReducer = (state, action) => {
           },
         };
       }
+      return state;
     }
     case "SUBSTRACT_QUANTITY": {
       const key = action.product;
@@ -57,6 +58,7 @@ const cartReducer = (state, action) => {
         }
         return state;
       }
+      return state;
     }
     case "DELETE_PRODUCT": {
       const key = action.product;

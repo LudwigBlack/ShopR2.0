@@ -21,6 +21,9 @@ const Cart = () => {
   );
 
   function finalModal() {
+    if (Object.keys(cartState.state).length === 0) {
+      return alert("Twój Koszyk jest pusty!");
+    }
     setShowModal(true);
   }
 
