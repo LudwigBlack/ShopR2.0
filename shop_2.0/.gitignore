@@ -55,3 +55,4 @@ subgraph.yaml
 # Files
 
 register2.*
+*.log

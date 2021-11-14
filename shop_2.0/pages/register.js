@@ -5,12 +5,14 @@ import RegisterInput from "../components/InputFromRegister";
 import RegisterPopup from "../components/Modals/RegisterPopup";
 import useLocalStorage from "../utility/localStorageHook";
 import validate from "../utility/validate";
+import usePasswordToggle from "../components/usePasswordToggle";
 
 import styles from "../styles/Home.module.css";
 
 const Register = () => {
   const [name, setName] = useLocalStorage("user", []);
   const [showModal, setShowModal] = useState(false);
+  const [PasswordInputType, ToggleIcon] = usePasswordToggle();
 
   let item;
 
@@ -63,13 +65,17 @@ const Register = () => {
             nameInput="userName"
           />
           {formik.errors.userName ? <div>{formik.errors.userName}</div> : null}{" "}
-          <RegisterInput
-            place={"Password"}
-            typo="password"
-            change={formik.handleChange}
-            valueInput={formik.values.password}
-            nameInput="password"
-          />
+          <div className={styles.password_toggle_icon_wrapper}>
+            <RegisterInput
+              place={"Password"}
+              // typo="text"
+              change={formik.handleChange}
+              valueInput={formik.values.password}
+              nameInput="password"
+              typo={PasswordInputType}
+            />
+            <span className={styles.password_toggle_icon}>{ToggleIcon}</span>
+          </div>
           {formik.errors.password ? <div>{formik.errors.password}</div> : null}
           <button type="submit">Register</button>
           <div className={styles.login_form_div}>

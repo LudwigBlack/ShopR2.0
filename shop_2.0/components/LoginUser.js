@@ -4,11 +4,13 @@ import { useState } from "react";
 import { useUser } from "../contexts/UserProvider";
 import { useFormik } from "formik";
 import LoginUserModal from "../components/Modals/LoginUserPopUp";
+import usePasswordToggle from "./usePasswordToggle";
 
 import styles from "../styles/Home.module.css";
 
 export const LoginUser = () => {
   const [showModal, setShowModal] = useState(false);
+  const [PasswordInputType, ToggleIcon] = usePasswordToggle();
 
   const router = useRouter();
 
@@ -64,13 +66,16 @@ export const LoginUser = () => {
           placeholder="UserName"
           onChange={formik.handleChange}
         />
-        <input
-          id="password"
-          name="password"
-          type="password"
-          placeholder="Password"
-          onChange={formik.handleChange}
-        />
+        <div className={styles.password_toggle_icon_wrapper}>
+          <input
+            id="password"
+            name="password"
+            type={PasswordInputType}
+            placeholder="Password"
+            onChange={formik.handleChange}
+          />
+          <span className={styles.password_toggle_icon}>{ToggleIcon}</span>
+        </div>
         <button type="submit">Log In</button>
       </form>
       <LoginUserModal
